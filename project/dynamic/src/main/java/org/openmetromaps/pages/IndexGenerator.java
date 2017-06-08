@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.openmetromaps.BaseGenerator;
 
 import de.topobyte.jsoup.HTML;
+import de.topobyte.jsoup.components.A;
 import de.topobyte.jsoup.nodes.Element;
 import de.topobyte.pagegen.core.Context;
 import de.topobyte.webpaths.WebPath;
@@ -36,6 +37,11 @@ public class IndexGenerator extends BaseGenerator
 				"display:block; font-weight: normal; text-align: center");
 
 		content.ac(HTML.h1("Coming soon..."));
+
+		Element stuff = content.ac(HTML.span());
+		stuff.appendText("Our code is going to be hosted on GitHub: ");
+		A link = stuff.ac(HTML.a("https://github.com/OpenMetroMaps"));
+		link.appendText("https://github.com/OpenMetroMaps");
 
 		footer();
 	}
