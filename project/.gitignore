@@ -1,0 +1,9 @@
+bin/
+build/
+.gradle
+.project
+.classpath
+.settings
+*.swp
+/bower
+/node_modules

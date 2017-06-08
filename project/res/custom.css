@@ -1,0 +1,15 @@
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+@media print {
+  a[href]:after {
+    content: none;
+  }
+}
+
+.breadcrumb > li + li:before {
+	color: #ccc;
+	content: "» ";
+	padding: 0 5px;
+}

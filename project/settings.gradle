@@ -1,0 +1,3 @@
+include 'core', 'dynamic'
+project(':core').name = 'openmetromaps-core'
+project(':dynamic').name = 'openmetromaps-dynamic'

@@ -1,0 +1,4 @@
+From ~/git-instances/openmetromaps.org/project run
+	git pull
+	./gradlew clean create
+	./deploy.to.production.locally.sh

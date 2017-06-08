@@ -1,0 +1,138 @@
+plugins {
+    id 'com.craigburke.bower-installer' version '2.5.1'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14'
+}
+
+allprojects {
+    group = pGroup
+    version = pVersion
+}
+
+subprojects {
+    apply plugin: 'maven'
+
+    repositories {
+        maven {
+            url maven_path_topobyte_temp
+        }
+        maven {
+            url maven_path_topobyte
+        }
+        maven {
+            url 'http://mvn.topobyte.de'
+        }
+        mavenCentral()
+    }
+}
+
+project(':openmetromaps-core') {
+    apply plugin: 'java'
+    apply plugin: 'eclipse-wtp'
+}
+
+project(':openmetromaps-dynamic') {
+    apply plugin: 'war'
+    apply plugin: 'eclipse-wtp'
+}
+
+project(':openmetromaps-core') {
+    dependencies {
+        compile 'de.topobyte:jsoup-elements:0.0.13'
+        compile 'de.topobyte:jsoup-bootstrap:0.0.6'
+        compile 'topobyte:webpaths:0.0.3'
+        compile 'topobyte:pagegen-core:0.0.3'
+        compile 'topobyte:pagegen-bootstrap:0.0.2'
+        compile 'com.fasterxml.jackson.core:jackson-databind:2.8.6'
+        compile 'commons-io:commons-io:2.4'
+
+        testCompile 'junit:junit:4.12'
+    }
+}
+
+project(':openmetromaps-dynamic') {
+    dependencies {
+        compile project(':openmetromaps-core')
+
+        compile 'de.topobyte:system-utils:0.0.1'
+        compile 'topobyte:io-utils:0.0.6'
+        compile 'topobyte:jsoup-servlet:0.0.1'
+        compile 'topobyte:jsoup-utils:0.0.7'
+        compile 'joda-time:joda-time:2.9.4'
+        compile 'topobyte:java-spell-checker:0.0.6'
+        compile 'topobyte:servlet-utils:0.0.1'
+
+        providedCompile 'javax.servlet:javax.servlet-api:3.+'
+        providedCompile 'javax.servlet.jsp:jsp-api:2.1'
+
+        compile 'org.slf4j:slf4j-api:1.7.20'
+        runtime 'org.slf4j:slf4j-log4j12:1.7.20'
+        compile 'log4j:log4j:1.2.17'
+    }
+}
+
+project(':openmetromaps-dynamic') {
+    eclipse {
+        wtp {
+            component {
+                contextPath = '/'
+                deployName = 'openmetromaps'
+                resource deployPath: '/', sourcePath: 'src/main/webapp'
+                resource deployPath: '/', sourcePath: 'res'
+                resource deployPath: '/', sourcePath: 'res_bower'
+            }
+        }
+    }
+    eclipse.classpath.file {
+        withXml {
+            def node = it.asNode()
+            node.appendNode('classpathentry', [kind: 'src', path: 'logging/devel'])
+            node.appendNode('classpathentry', [kind: 'src', path: 'config/devel'])
+        }
+        // Classpath entry for Eclipse which changes the order of classpathentries; otherwise no sources for 3rd party jars are shown
+        withXml { xml ->
+            def node = xml.asNode()
+            node.remove( node.find { it.@path == 'org.eclipse.jst.j2ee.internal.web.container' } )
+            node.appendNode( 'classpathentry', [ kind: 'con', path: 'org.eclipse.jst.j2ee.internal.web.container', exported: 'true'])
+        }
+    }
+
+    bower {
+        installBase = 'bower'
+
+        'jquery'('2.2.2') {
+            source 'dist/*.js' >> 'js/'
+        }
+
+        'bootstrap'('3.3.6') {
+            source 'dist/css/*.css' >> 'styles/'
+            source 'dist/fonts/**' >> 'fonts/'
+            source 'dist/js/*.js' >> 'js/'
+            source 'js/*.js' >> 'js/'
+        }
+    }
+
+    def commonWarDefs = {
+        from 'res'
+        from 'res_bower'
+    }
+
+    war {
+        classifier = 'production'
+        configure commonWarDefs
+    }
+
+    [war].each { task ->
+        task.dependsOn bowerInstall
+        task.from ('logging/' + task.classifier) {
+            into('WEB-INF/classes')
+            include "**/*"
+        }
+        task.from ('config/' + task.classifier) {
+            into('WEB-INF/classes')
+            include "**/*"
+        }
+    }
+}
