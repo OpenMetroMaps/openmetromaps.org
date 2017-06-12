@@ -51,7 +51,7 @@ public class IndexGenerator extends BaseGenerator
 
 		content.ac(HTML.h1("What's this?"));
 
-		content.appendText("Schmeatic maps for public transportation networks are essential tools for orientation and navigation in cities.");
+		content.appendText("Schematic maps for public transportation networks are essential tools for orientation and navigation in cities.");
 		content.appendText(" Unfortunately, these maps are usually proprietary resources that pose strong limits on what you are allowed to do with them.");
 		content.appendText(" The owners of the material often charge a fee for displaying the content on websites, apps or printed material and they don't allow you to change anything on the map itself.");
 		content.appendText(" This alone prevents creative use of these maps.");
