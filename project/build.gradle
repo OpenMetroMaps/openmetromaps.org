@@ -45,7 +45,6 @@ project(':openmetromaps-core') {
         compile 'topobyte:webpaths:0.0.3'
         compile 'topobyte:pagegen-core:0.0.3'
         compile 'topobyte:pagegen-bootstrap:0.0.2'
-        compile 'com.fasterxml.jackson.core:jackson-databind:2.8.6'
         compile 'commons-io:commons-io:2.4'
 
         testCompile 'junit:junit:4.12'
@@ -60,8 +59,6 @@ project(':openmetromaps-dynamic') {
         compile 'topobyte:io-utils:0.0.6'
         compile 'topobyte:jsoup-servlet:0.0.1'
         compile 'topobyte:jsoup-utils:0.0.7'
-        compile 'joda-time:joda-time:2.9.4'
-        compile 'topobyte:java-spell-checker:0.0.6'
         compile 'topobyte:servlet-utils:0.0.1'
 
         providedCompile 'javax.servlet:javax.servlet-api:3.+'
