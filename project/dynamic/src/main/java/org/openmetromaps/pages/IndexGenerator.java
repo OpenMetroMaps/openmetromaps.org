@@ -41,7 +41,7 @@ public class IndexGenerator extends BaseGenerator
 		content.ac(HTML.h1("Get in touch"));
 
 		Element stuff = content.ac(HTML.span());
-		stuff.appendText("Our code is going to be hosted on GitHub: ");
+		stuff.appendText("Our code is hosted on GitHub: ");
 		A linkGithub = stuff.ac(HTML.a("https://github.com/OpenMetroMaps"));
 		linkGithub.appendText("https://github.com/OpenMetroMaps");
 
