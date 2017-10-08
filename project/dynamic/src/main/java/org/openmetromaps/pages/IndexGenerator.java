@@ -41,15 +41,20 @@ public class IndexGenerator extends BaseGenerator
 		content.ac(HTML.h1("Get in touch"));
 
 		Element stuff = content.ac(HTML.span());
-		stuff.appendText("Our code is hosted on GitHub: ");
+		stuff.appendText("Our code is hosted on ");
 		A linkGithub = stuff.ac(HTML.a("https://github.com/OpenMetroMaps"));
-		linkGithub.appendText("https://github.com/OpenMetroMaps");
+		linkGithub.appendText("GitHub");
+		stuff.appendText(". ");
 
-		stuff.appendChild(HTML.br());
-
-		stuff.appendText("Follow us on Twitter: ");
+		stuff.appendText("You can follow us on ");
 		A linkTwitter = stuff.ac(HTML.a("https://twitter.com/openmetromaps"));
-		linkTwitter.appendText("@openmetromaps");
+		linkTwitter.appendText("Twitter");
+
+		stuff.appendText(" or have a look at the contributions we submitted to the OpenStreetMap with ");
+		A linkOsmProfile = stuff.ac(HTML
+				.a("https://www.openstreetmap.org/user/OpenMetroMaps"));
+		linkOsmProfile.appendText("our OSM account");
+		stuff.appendText(".");
 
 		content.ac(HTML.h1("What's this?"));
 
