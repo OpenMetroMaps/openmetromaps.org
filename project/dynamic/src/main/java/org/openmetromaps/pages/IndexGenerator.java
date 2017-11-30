@@ -54,7 +54,13 @@ public class IndexGenerator extends BaseGenerator
 		A linkOsmProfile = stuff.ac(HTML
 				.a("https://www.openstreetmap.org/user/OpenMetroMaps"));
 		linkOsmProfile.appendText("our OSM account");
-		stuff.appendText(".");
+		stuff.appendText(". ");
+
+		stuff.appendText("There's also a ");
+		A linkMailingList = stuff.ac(HTML
+				.a("https://www.freelists.org/list/openmetromaps"));
+		linkMailingList.appendText("Mailing List");
+		stuff.appendText(" that you can subscribe to if you want to participate in discussions around the project.");
 
 		content.ac(HTML.h1("What's this?"));
 
