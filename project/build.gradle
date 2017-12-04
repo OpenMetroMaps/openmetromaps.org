@@ -37,7 +37,7 @@ project(':openmetromaps-dynamic') {
 
 project(':openmetromaps-core') {
     dependencies {
-        compile 'de.topobyte:jsoup-elements:0.0.13'
+        compile 'de.topobyte:jsoup-elements:0.0.14'
         compile 'de.topobyte:jsoup-bootstrap:0.0.7'
         compile 'topobyte:webpaths:0.0.4'
         compile 'topobyte:pagegen-core:0.0.4'
