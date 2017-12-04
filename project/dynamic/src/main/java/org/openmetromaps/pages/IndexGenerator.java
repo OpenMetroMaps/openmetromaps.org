@@ -36,6 +36,17 @@ public class IndexGenerator extends BaseGenerator
 		slogan.attr("style",
 				"display:block; font-weight: normal; text-align: center");
 
+		getInTouch();
+
+		whatsThis();
+
+		funding();
+
+		footer();
+	}
+
+	private void getInTouch()
+	{
 		content.ac(HTML.h1("Get in touch"));
 
 		Element stuff = content.ac(HTML.span());
@@ -57,7 +68,10 @@ public class IndexGenerator extends BaseGenerator
 				"Mailing List"));
 		stuff.appendText(
 				" that you can subscribe to if you want to participate in discussions around the project.");
+	}
 
+	private void whatsThis()
+	{
 		content.ac(HTML.h1("What's this?"));
 
 		content.appendText(
@@ -71,7 +85,10 @@ public class IndexGenerator extends BaseGenerator
 				" Furthermore, you only get a PDF document – this makes interactive content hard to create.");
 		content.appendText(
 				" We're here to change that by providing tools and file formats for creating free schematic metro maps.");
+	}
 
+	private void funding()
+	{
 		content.ac(HTML.h1("Funding"));
 
 		content.appendText("This project is funded by the");
@@ -87,8 +104,6 @@ public class IndexGenerator extends BaseGenerator
 		Div div = content.ac(HTML.div());
 		Img img = div.ac(HTML.img("images/BMBF_en.jpg"));
 		img.attr("style", "height:16em;width:auto");
-
-		footer();
 	}
 
 }
