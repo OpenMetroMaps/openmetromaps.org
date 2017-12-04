@@ -175,7 +175,7 @@ public class IndexGenerator extends BaseGenerator
 	{
 		content.ac(HTML.h1("Funding"));
 
-		content.appendText("This project is funded by the");
+		content.appendText("This project is currently funded by the");
 		content.ac(
 				HTML.a("https://okfn.de", "Open Knowledge Foundation Germany"));
 		content.appendText(" via the");
