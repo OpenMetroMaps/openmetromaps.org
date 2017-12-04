@@ -36,9 +36,9 @@ public class IndexGenerator extends BaseGenerator
 		slogan.attr("style",
 				"display:block; font-weight: normal; text-align: center");
 
-		getInTouch();
-
 		whatsThis();
+
+		getInTouch();
 
 		funding();
 
