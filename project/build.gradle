@@ -38,10 +38,10 @@ project(':openmetromaps-dynamic') {
 project(':openmetromaps-core') {
     dependencies {
         compile 'de.topobyte:jsoup-elements:0.0.13'
-        compile 'de.topobyte:jsoup-bootstrap:0.0.6'
-        compile 'topobyte:webpaths:0.0.3'
-        compile 'topobyte:pagegen-core:0.0.3'
-        compile 'topobyte:pagegen-bootstrap:0.0.2'
+        compile 'de.topobyte:jsoup-bootstrap:0.0.7'
+        compile 'topobyte:webpaths:0.0.4'
+        compile 'topobyte:pagegen-core:0.0.4'
+        compile 'topobyte:pagegen-bootstrap:0.0.3'
         compile 'commons-io:commons-io:2.4'
 
         testCompile 'junit:junit:4.12'
@@ -53,9 +53,9 @@ project(':openmetromaps-dynamic') {
         compile project(':openmetromaps-core')
 
         compile 'de.topobyte:system-utils:0.0.1'
-        compile 'topobyte:io-utils:0.0.6'
-        compile 'topobyte:jsoup-servlet:0.0.1'
-        compile 'topobyte:jsoup-utils:0.0.7'
+        compile 'topobyte:io-utils:0.0.8'
+        compile 'topobyte:jsoup-servlet:0.0.3'
+        compile 'topobyte:jsoup-utils:0.0.8'
         compile 'topobyte:servlet-utils:0.0.1'
 
         providedCompile 'javax.servlet:javax.servlet-api:3.+'
