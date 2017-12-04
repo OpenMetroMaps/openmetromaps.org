@@ -72,6 +72,13 @@ public class IndexGenerator extends BaseGenerator
 	{
 		content.ac(HTML.h1("Project Information"));
 
+		status();
+
+		license();
+	}
+
+	private void status()
+	{
 		content.ac(HTML.h2("Status"));
 
 		Element status = content.ac(HTML.span());
@@ -90,7 +97,10 @@ public class IndexGenerator extends BaseGenerator
 		status.ac(HTML.a("https://www.openstreetmap.org/user/OpenMetroMaps",
 				"our OSM account"));
 		status.appendText(". ");
+	}
 
+	private void license()
+	{
 		content.ac(HTML.h2("License"));
 
 		Element license = content.ac(HTML.span());
