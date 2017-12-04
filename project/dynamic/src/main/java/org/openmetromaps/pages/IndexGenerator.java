@@ -72,7 +72,7 @@ public class IndexGenerator extends BaseGenerator
 
 	private void whatsThis()
 	{
-		content.ac(HTML.h1("What's this?"));
+		content.ac(HTML.h1("Our mission"));
 
 		content.appendText(
 				"Schematic maps for public transportation networks are essential tools for orientation and navigation in cities.");
