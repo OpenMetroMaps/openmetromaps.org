@@ -25,6 +25,19 @@ public class DemoGenerator extends BaseGenerator
 
 		menu();
 
+		intro();
+
+		mapEditor();
+
+		webViewer();
+
+		fileFormat();
+
+		footer();
+	}
+
+	private void intro()
+	{
 		content.ap(HTML.h1("Demo"));
 
 		content.appendText(
@@ -32,7 +45,10 @@ public class DemoGenerator extends BaseGenerator
 		content.appendText(" developed for OpenMetroMaps.");
 		content.appendText(
 				" The examples below feature the work-in-progress maps of Berlin.");
+	}
 
+	private void mapEditor()
+	{
 		content.ap(HTML.h2("Map Editor"));
 
 		content.appendText("This is a screenshot of the ");
@@ -45,7 +61,10 @@ public class DemoGenerator extends BaseGenerator
 		Img image = content
 				.ac(HTML.img("/images/map-editor.png", "Map Editor"));
 		image.addClass("img-responsive");
+	}
 
+	private void webViewer()
+	{
 		content.ap(HTML.h2("Web Viewer"));
 
 		content.appendText("Here are links to instances of the ");
@@ -59,10 +78,6 @@ public class DemoGenerator extends BaseGenerator
 				"Berlin, schematic"));
 		list.addItem(HTML.a("http://demo.openmetromaps.org/geographic.html",
 				"Berlin, geographic"));
-
-		fileFormat();
-
-		footer();
 	}
 
 	private void fileFormat()
