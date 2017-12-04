@@ -40,7 +40,7 @@ public class IndexGenerator extends BaseGenerator
 
 		mission();
 
-		projectStatus();
+		projectInfo();
 
 		userGuide();
 
@@ -68,26 +68,42 @@ public class IndexGenerator extends BaseGenerator
 				" We're here to change that by providing open source tools and file formats for creating free schematic metro maps.");
 	}
 
-	private void projectStatus()
+	private void projectInfo()
 	{
-		content.ac(HTML.h1("Project status"));
+		content.ac(HTML.h1("Project Information"));
 
-		Element stuff = content.ac(HTML.span());
+		content.ac(HTML.h2("Status"));
 
-		stuff.appendText("The project is in alpha stage.");
-		stuff.appendText(
+		Element status = content.ac(HTML.span());
+
+		status.appendText("The project is in alpha stage.");
+		status.appendText(
 				" Things are still changing quickly and many things are not easy to use and fully functional yet.");
-		stuff.appendText(
+		status.appendText(
 				" At this point, some expertise in programming is required to get involved with the project.");
 
-		stuff.appendText(" You can follow us on ");
-		stuff.ac(HTML.a("https://twitter.com/openmetromaps", "Twitter"));
+		status.appendText(" You can follow us on ");
+		status.ac(HTML.a("https://twitter.com/openmetromaps", "Twitter"));
 
-		stuff.appendText(
+		status.appendText(
 				" or have a look at the contributions we submitted to the OpenStreetMap with ");
-		stuff.ac(HTML.a("https://www.openstreetmap.org/user/OpenMetroMaps",
+		status.ac(HTML.a("https://www.openstreetmap.org/user/OpenMetroMaps",
 				"our OSM account"));
-		stuff.appendText(". ");
+		status.appendText(". ");
+
+		content.ac(HTML.h2("License"));
+
+		Element license = content.ac(HTML.span());
+
+		license.appendText("This is a free software project.");
+		license.appendText(
+				" All source code is released under the terms of the ");
+		license.appendText("GNU LGPL license");
+		license.appendText(".");
+
+		license.appendText(" We're also producing free data.");
+		license.appendText(
+				" Data will be published under an open document license.");
 	}
 
 	private void userGuide()
