@@ -60,7 +60,28 @@ public class DemoGenerator extends BaseGenerator
 		list.addItem(HTML.a("http://demo.openmetromaps.org/geographic.html",
 				"Berlin, geographic"));
 
+		fileFormat();
+
 		footer();
+	}
+
+	private void fileFormat()
+	{
+		content.ap(HTML.h2("File Format"));
+
+		content.appendText("One major goal of OpenMetroMaps is to define a");
+		content.appendText(" file format for storing metro maps.");
+		content.appendText(" The current draft is a relatively simple");
+		content.appendText(" XML-based document.");
+		content.appendText(" It has not been formally specified yet,");
+		content.appendText(" but there are existing files and running code");
+		content.appendText(" that reads and writes data in such a format.");
+		content.appendText(
+				" Have a look at this example document from the main repository:");
+
+		content.ac(
+				HTML.a("https://github.com/OpenMetroMaps/OpenMetroMaps/blob/master/java/test-data/src/main/resources/berlin.xml",
+						"berlin.xml"));
 	}
 
 }
