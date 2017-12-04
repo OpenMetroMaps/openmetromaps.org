@@ -7,6 +7,8 @@ import org.openmetromaps.BaseGenerator;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.components.Div;
 import de.topobyte.jsoup.components.Img;
+import de.topobyte.jsoup.components.ListItem;
+import de.topobyte.jsoup.components.UnorderedList;
 import de.topobyte.jsoup.nodes.Element;
 import de.topobyte.pagegen.core.Context;
 import de.topobyte.webpaths.WebPath;
@@ -36,41 +38,20 @@ public class IndexGenerator extends BaseGenerator
 		slogan.attr("style",
 				"display:block; font-weight: normal; text-align: center");
 
-		whatsThis();
+		mission();
 
-		getInTouch();
+		projectStatus();
+
+		userGuide();
+
+		developerGuide();
 
 		funding();
 
 		footer();
 	}
 
-	private void getInTouch()
-	{
-		content.ac(HTML.h1("Get in touch"));
-
-		Element stuff = content.ac(HTML.span());
-		stuff.appendText("Our code is hosted on ");
-		stuff.ac(HTML.a("https://github.com/OpenMetroMaps", "GitHub"));
-		stuff.appendText(". ");
-
-		stuff.appendText("You can follow us on ");
-		stuff.ac(HTML.a("https://twitter.com/openmetromaps", "Twitter"));
-
-		stuff.appendText(
-				" or have a look at the contributions we submitted to the OpenStreetMap with ");
-		stuff.ac(HTML.a("https://www.openstreetmap.org/user/OpenMetroMaps",
-				"our OSM account"));
-		stuff.appendText(". ");
-
-		stuff.appendText("There's also a ");
-		stuff.ac(HTML.a("https://www.freelists.org/list/openmetromaps",
-				"Mailing List"));
-		stuff.appendText(
-				" that you can subscribe to if you want to participate in discussions around the project.");
-	}
-
-	private void whatsThis()
+	private void mission()
 	{
 		content.ac(HTML.h1("Our mission"));
 
@@ -85,6 +66,67 @@ public class IndexGenerator extends BaseGenerator
 				" Furthermore, you only get a PDF document – this makes interactive content hard to create.");
 		content.appendText(
 				" We're here to change that by providing open source tools and file formats for creating free schematic metro maps.");
+	}
+
+	private void projectStatus()
+	{
+		content.ac(HTML.h1("Project status"));
+
+		Element stuff = content.ac(HTML.span());
+
+		stuff.appendText("The project is in alpha stage.");
+		stuff.appendText(
+				" Things are still changing quickly and many things are not easy to use and fully functional yet.");
+		stuff.appendText(
+				" At this point, some expertise in programming is required to get involved with the project.");
+
+		stuff.appendText(" You can follow us on ");
+		stuff.ac(HTML.a("https://twitter.com/openmetromaps", "Twitter"));
+
+		stuff.appendText(
+				" or have a look at the contributions we submitted to the OpenStreetMap with ");
+		stuff.ac(HTML.a("https://www.openstreetmap.org/user/OpenMetroMaps",
+				"our OSM account"));
+		stuff.appendText(". ");
+	}
+
+	private void userGuide()
+	{
+		content.ac(HTML.h1("User Guide"));
+
+		content.appendText(
+				" The desktop software is already in a partially usable state, however there are no installers available yet.");
+		content.appendText(
+				" Hence some familiarity with software development is still required to get the software running.");
+	}
+
+	private void developerGuide()
+	{
+		content.ac(HTML.h1("Developer Guide"));
+
+		UnorderedList list = content.ac(HTML.ul());
+
+		UnorderedList github = content.ac(HTML.ul());
+		ListItem itemGithub = list.addItem();
+		itemGithub.appendText("We use GitHub to coordinate development:");
+		itemGithub.ac(github);
+
+		github.addItem().appendText("The main repository for soure code: ")
+				.ap(HTML.a("https://github.com/OpenMetroMaps/OpenMetroMaps",
+						"OpenMetroMaps/OpenMetroMaps"));
+		github.addItem().appendText("An organization for data projects: ")
+				.ap(HTML.a("https://github.com/OpenMetroMapsData",
+						"OpenMetroMapsData"));
+		github.addItem().appendText("We use ")
+				.ap(HTML.a(
+						"https://github.com/OpenMetroMaps/OpenMetroMaps/issues",
+						"GitHub issues"))
+				.appendText(" as a Bug Tracker");
+		list.addItem().appendText("Subscribe to the ")
+				.ap(HTML.a("https://www.freelists.org/list/openmetromaps",
+						"Mailing List"))
+				.appendText(
+						" to participate in discussions around the project");
 	}
 
 	private void funding()
