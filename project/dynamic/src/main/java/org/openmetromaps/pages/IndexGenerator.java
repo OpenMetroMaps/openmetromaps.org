@@ -98,12 +98,28 @@ public class IndexGenerator extends BaseGenerator
 		license.appendText("This is a free software project.");
 		license.appendText(
 				" All source code is released under the terms of the ");
-		license.appendText("GNU LGPL license");
+		license.appendText("GNU Lesser General Public License (LGPL).");
+
+		license.appendText(
+				" For details, have a look at the terms of both the ");
+		license.ac(
+				HTML.a("https://www.gnu.org/licenses/lgpl-3.0.html", "LGPL"));
+		license.appendText(" and the ");
+		license.ac(HTML.a("https://www.gnu.org/licenses/gpl-3.0.html", "GPL"));
 		license.appendText(".");
 
-		license.appendText(" We're also producing free data.");
+		license.appendText(" We're also producing free data");
+		license.appendText(", which is published under the terms of the ");
+
+		license.ac(HTML.a("https://opendatacommons.org/licenses/odbl/1.0/",
+				"Open Database License (ODbL)"));
+		license.appendText(".");
+
 		license.appendText(
-				" Data will be published under an open document license.");
+				" To understand what that means, have a look at the ");
+		license.ac(HTML.a("https://opendatacommons.org/licenses/odbl/summary/",
+				"plain language summary"));
+		license.appendText(" of the ODbL.");
 	}
 
 	private void userGuide()
