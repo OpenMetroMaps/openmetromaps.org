@@ -42,6 +42,8 @@ public class IndexGenerator extends BaseGenerator
 
 		projectInfo();
 
+		demo();
+
 		userGuide();
 
 		developerGuide();
@@ -130,6 +132,17 @@ public class IndexGenerator extends BaseGenerator
 		license.ac(HTML.a("https://opendatacommons.org/licenses/odbl/summary/",
 				"plain language summary"));
 		license.appendText(" of the ODbL.");
+	}
+
+	private void demo()
+	{
+		content.ac(HTML.h1("Demo"));
+
+		content.appendText(
+				"To get an impression of what we're getting at, have a look at the ");
+		content.ac(HTML.a("demo", "Demo page"));
+		content.appendText(
+				". Bear in mind that the project is in a very early stage.");
 	}
 
 	private void userGuide()
