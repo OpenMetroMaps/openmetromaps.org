@@ -3,6 +3,7 @@ package org.openmetromaps.pages;
 import java.io.IOException;
 
 import org.openmetromaps.BaseGenerator;
+import org.openmetromaps.Links;
 
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.components.Img;
@@ -52,9 +53,8 @@ public class DemoGenerator extends BaseGenerator
 		content.ap(HTML.h2("Map Editor"));
 
 		content.appendText("This is a screenshot of the ");
-		content.ac(
-				HTML.a("https://github.com/OpenMetroMaps/OpenMetroMaps#desktop-tools",
-						"Map Editor"));
+		content.ac(Links.github("OpenMetroMaps", "OpenMetroMaps",
+				"#desktop-tools", "Map Editor"));
 		content.appendText(", which is used");
 		content.appendText(" for creating and editing maps:");
 
@@ -68,9 +68,8 @@ public class DemoGenerator extends BaseGenerator
 		content.ap(HTML.h2("Web Viewer"));
 
 		content.appendText("Here are links to instances of the ");
-		content.ac(
-				HTML.a("https://github.com/OpenMetroMaps/OpenMetroMaps#web-viewer",
-						"JavaScript view"));
+		content.ac(Links.github("OpenMetroMaps", "OpenMetroMaps", "#web-viewer",
+				"JavaScript view"));
 		content.appendText(":");
 
 		UnorderedList list = content.ac(HTML.ul());
@@ -94,9 +93,9 @@ public class DemoGenerator extends BaseGenerator
 		content.appendText(
 				" Have a look at this example document from the main repository:");
 
-		content.ac(
-				HTML.a("https://github.com/OpenMetroMaps/OpenMetroMaps/blob/master/java/test-data/src/main/resources/berlin.xml",
-						"berlin.xml"));
+		content.ac(Links.github("OpenMetroMaps", "OpenMetroMaps",
+				"/blob/master/java/test-data/src/main/resources/berlin.xml",
+				"berlin.xml"));
 	}
 
 }

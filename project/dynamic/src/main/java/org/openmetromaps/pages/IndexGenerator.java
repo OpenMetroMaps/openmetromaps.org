@@ -175,7 +175,7 @@ public class IndexGenerator extends BaseGenerator
 				.ap(Links.github("OpenMetroMapsData"));
 		github.addItem()
 				.appendText("We use ").ap(Links.github("OpenMetroMaps",
-						"OpenMetroMaps", "issues", "GitHub issues"))
+						"OpenMetroMaps", "/issues", "GitHub issues"))
 				.appendText(" as a Bug Tracker");
 		list.addItem().appendText("Subscribe to the ")
 				.ap(HTML.a("https://www.freelists.org/list/openmetromaps",

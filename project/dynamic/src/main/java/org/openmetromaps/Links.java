@@ -19,8 +19,7 @@ public class Links
 
 	public static A github(String user, String repo, String path, String text)
 	{
-		return HTML.a("https://github.com/" + user + "/" + repo + "/" + path,
-				text);
+		return HTML.a("https://github.com/" + user + "/" + repo + path, text);
 	}
 
 }
