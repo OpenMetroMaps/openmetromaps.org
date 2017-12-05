@@ -12,6 +12,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,6 +53,13 @@ public class RootFilter implements Filter
 					chain.doFilter(request, response);
 					return;
 				}
+			}
+
+			// Normalize multiple consecutive forward slashes to single slashes
+			if (path.contains("//")) {
+				String newUri = path.replaceAll("/+/", "/");
+				((HttpServletResponse) response).sendRedirect(newUri);
+				return;
 			}
 
 			request.getRequestDispatcher("/pages" + path).forward(request,
