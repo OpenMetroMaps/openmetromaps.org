@@ -55,7 +55,6 @@ project(':openmetromaps-dynamic') {
         compile 'de.topobyte:system-utils:0.0.1'
         compile 'topobyte:jsoup-servlet:0.0.3'
         compile 'topobyte:jsoup-utils:0.0.8'
-        compile 'topobyte:servlet-utils:0.0.1'
 
         providedCompile 'javax.servlet:javax.servlet-api:3.+'
         providedCompile 'javax.servlet.jsp:jsp-api:2.1'
