@@ -39,7 +39,7 @@ project(':openmetromaps-core') {
     dependencies {
         compile 'de.topobyte:jsoup-elements:0.0.15'
         compile 'de.topobyte:jsoup-bootstrap:0.0.7'
-        compile 'topobyte:webpaths:0.0.4'
+        compile 'de.topobyte:webpaths-core:0.0.1'
         compile 'topobyte:pagegen-core:0.0.4'
         compile 'topobyte:pagegen-bootstrap:0.0.3'
         compile 'commons-io:commons-io:2.4'
