@@ -169,6 +169,9 @@ public class IndexGenerator extends BaseGenerator
 		github.addItem().appendText("The main repository for soure code: ")
 				.ap(HTML.a("https://github.com/OpenMetroMaps/OpenMetroMaps",
 						"OpenMetroMaps/OpenMetroMaps"));
+		github.addItem().appendText("This website's code: ")
+				.ap(HTML.a("https://github.com/OpenMetroMaps/openmetromaps.org",
+						"OpenMetroMaps/openmetromaps.org"));
 		github.addItem().appendText("An organization for data projects: ")
 				.ap(HTML.a("https://github.com/OpenMetroMapsData",
 						"OpenMetroMapsData"));
