@@ -3,6 +3,7 @@ package org.openmetromaps.pages;
 import java.io.IOException;
 
 import org.openmetromaps.BaseGenerator;
+import org.openmetromaps.Links;
 
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.components.Div;
@@ -167,18 +168,14 @@ public class IndexGenerator extends BaseGenerator
 		itemGithub.ac(github);
 
 		github.addItem().appendText("The main repository for soure code: ")
-				.ap(HTML.a("https://github.com/OpenMetroMaps/OpenMetroMaps",
-						"OpenMetroMaps/OpenMetroMaps"));
+				.ap(Links.github("OpenMetroMaps", "OpenMetroMaps"));
 		github.addItem().appendText("This website's code: ")
-				.ap(HTML.a("https://github.com/OpenMetroMaps/openmetromaps.org",
-						"OpenMetroMaps/openmetromaps.org"));
+				.ap(Links.github("OpenMetroMaps", "openmetromaps.org"));
 		github.addItem().appendText("An organization for data projects: ")
-				.ap(HTML.a("https://github.com/OpenMetroMapsData",
-						"OpenMetroMapsData"));
-		github.addItem().appendText("We use ")
-				.ap(HTML.a(
-						"https://github.com/OpenMetroMaps/OpenMetroMaps/issues",
-						"GitHub issues"))
+				.ap(Links.github("OpenMetroMapsData"));
+		github.addItem()
+				.appendText("We use ").ap(Links.github("OpenMetroMaps",
+						"OpenMetroMaps", "issues", "GitHub issues"))
 				.appendText(" as a Bug Tracker");
 		list.addItem().appendText("Subscribe to the ")
 				.ap(HTML.a("https://www.freelists.org/list/openmetromaps",
