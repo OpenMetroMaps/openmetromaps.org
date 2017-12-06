@@ -7,7 +7,7 @@ import de.topobyte.webpaths.WebPaths;
 public class WebContext implements Context
 {
 
-	private WebPath favicon = WebPaths.get("images/favicon.ico");
+	private WebPath favicon = WebPaths.get("favicon.ico");
 
 	@Override
 	public WebPath getFavIcon()

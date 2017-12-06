@@ -130,13 +130,15 @@ project(':openmetromaps-dynamic') {
     task generateIcons {
         doLast {
             def svg = 'res/images/icon.svg'
-            def dir = new File(buildDir, 'favicons/images')
+            def dir = new File(buildDir, 'favicons')
+            def subdir = new File(dir, 'images')
             dir.mkdirs()
+            subdir.mkdirs()
             def out = 'favicon-%d.png'
             def sizes = [16, 32, 48, 64, 96]
             for (size in sizes) {
                 def filename = String.format(out, size)
-                def file = new File(dir, filename)
+                def file = new File(subdir, filename)
                 println 'Generate icon: ' + file
                 exec {
                     commandLine = 'inkscape'
@@ -151,7 +153,7 @@ project(':openmetromaps-dynamic') {
             def icoSizes = [16, 32, 48, 64]
             for (size in icoSizes) {
                 def filename = String.format(out, size)
-                def file = new File(dir, filename)
+                def file = new File(subdir, filename)
                 icoFiles << file.toString()
             }
             exec {

@@ -28,6 +28,7 @@ public class RootFilter implements Filter
 	static {
 		statics.add("/bower/");
 		statics.add("/images/");
+		statics.add("/favicon.ico");
 		statics.add("/custom.css");
 		statics.add("/sticky-footer-navbar.css");
 		statics.add("/googleb4d9f938be253b7a.html");
