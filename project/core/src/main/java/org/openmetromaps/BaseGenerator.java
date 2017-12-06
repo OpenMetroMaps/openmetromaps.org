@@ -26,6 +26,7 @@ public class BaseGenerator extends BootstrapGenerator
 
 		Favicons.addToHeader(head, "images/favicon-16.png", 16);
 		Favicons.addToHeader(head, "images/favicon-32.png", 32);
+		Favicons.addToHeader(head, "images/favicon-48.png", 48);
 		Favicons.addToHeader(head, "images/favicon-64.png", 64);
 		Favicons.addToHeader(head, "images/favicon-96.png", 96);
 

@@ -133,7 +133,7 @@ project(':openmetromaps-dynamic') {
             def dir = new File(buildDir, 'favicons/images')
             dir.mkdirs()
             def out = 'favicon-%d.png'
-            def sizes = [16, 32, 64, 96]
+            def sizes = [16, 32, 48, 64, 96]
             for (size in sizes) {
                 def filename = String.format(out, size)
                 def file = new File(dir, filename)
@@ -148,7 +148,7 @@ project(':openmetromaps-dynamic') {
             println 'Generate icon: ' + icoFile
 
             def icoFiles = []
-            def icoSizes = [16, 32, 64]
+            def icoSizes = [16, 32, 48, 64]
             for (size in icoSizes) {
                 def filename = String.format(out, size)
                 def file = new File(dir, filename)
