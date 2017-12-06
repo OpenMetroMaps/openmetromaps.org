@@ -124,18 +124,21 @@ project(':openmetromaps-dynamic') {
             include "**/*"
         }
     }
-}
 
-task generateIcons() {
-    def svg = 'res/images/icon.svg'
-    def out = 'favicon-%d.png'
-    def sizes = [16, 32, 64, 96]
-    for (size in sizes) {
-        def filename = String.format(out, size)
-        println filename
-        exec {
-            commandLine = 'inkscape'
-            args = ['-C', '-h', size, '-e', filename, svg]
+    task generateIcons() {
+        def svg = 'res/images/icon.svg'
+        def dir = new File(buildDir, 'favicons')
+        dir.mkdirs()
+        def out = 'favicon-%d.png'
+        def sizes = [16, 32, 64, 96]
+        for (size in sizes) {
+            def filename = String.format(out, size)
+            def file = new File(dir, filename)
+            println file
+            exec {
+                commandLine = 'inkscape'
+                args = ['-C', '-h', size, '-e', file.toString(), svg]
+            }
         }
     }
 }
