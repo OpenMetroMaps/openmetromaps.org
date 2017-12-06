@@ -125,3 +125,17 @@ project(':openmetromaps-dynamic') {
         }
     }
 }
+
+task generateIcons() {
+    def svg = 'res/images/icon.svg'
+    def out = 'favicon-%d.png'
+    def sizes = [16, 32, 64, 96]
+    for (size in sizes) {
+        def filename = String.format(out, size)
+        println filename
+        exec {
+            commandLine = 'inkscape'
+            args = ['-C', '-h', size, '-e', filename, svg]
+        }
+    }
+}
