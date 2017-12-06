@@ -23,6 +23,12 @@ public class BaseGenerator extends BootstrapGenerator
 	{
 		super.generate();
 		Element head = builder.getHead();
+
+		Favicons.addToHeader(head, "images/favicon-16.png", 16);
+		Favicons.addToHeader(head, "images/favicon-32.png", 32);
+		Favicons.addToHeader(head, "images/favicon-64.png", 64);
+		Favicons.addToHeader(head, "images/favicon-96.png", 96);
+
 		head.appendChild(create("link", "href",
 				"https://fonts.googleapis.com/css?family=Ultra", "rel",
 				"stylesheet"));
