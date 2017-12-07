@@ -3,7 +3,7 @@ package org.openmetromaps.pages;
 import java.io.IOException;
 
 import org.openmetromaps.BaseGenerator;
-import org.openmetromaps.Links;
+import org.openmetromaps.PathHelper;
 
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.components.Div;
@@ -85,7 +85,7 @@ public class IndexGenerator extends BaseGenerator
 
 		status.appendText(
 				" To get an impression of what we're getting at, have a look at the ");
-		status.ac(HTML.a("demo", "Demo page"));
+		status.ac(HTML.a(getLink(PathHelper.demo()), "Demo page"));
 		status.appendText(".");
 
 		status.appendText(" You can also follow us on ");

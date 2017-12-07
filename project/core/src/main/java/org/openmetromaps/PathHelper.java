@@ -11,4 +11,9 @@ public class PathHelper
 		return WebPaths.get("about");
 	}
 
+	public static WebPath demo()
+	{
+		return WebPaths.get("demo");
+	}
+
 }
