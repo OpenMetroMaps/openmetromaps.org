@@ -57,6 +57,19 @@ public class DeveloperGuideGenerator extends BaseGenerator
 						"Mailing List"))
 				.appendText(
 						" to participate in discussions around the project");
+
+		gettingStarted();
+	}
+
+	private void gettingStarted()
+	{
+		content.ac(HTML.h1("Getting Started"));
+
+		content.appendText("As a first step, we recommend to get the desktop ");
+		content.appendText(" tools running. How to do this ");
+		content.ap(Links.github("OpenMetroMaps", "OpenMetroMaps",
+				"/blob/master/java/README.md", "is described here in detail"));
+		content.appendText(".");
 	}
 
 }
