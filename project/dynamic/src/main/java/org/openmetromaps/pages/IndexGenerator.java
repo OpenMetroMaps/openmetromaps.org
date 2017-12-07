@@ -45,9 +45,7 @@ public class IndexGenerator extends BaseGenerator
 
 		license();
 
-		userGuide();
-
-		developerGuide();
+		documentation();
 
 		funding();
 
@@ -131,42 +129,17 @@ public class IndexGenerator extends BaseGenerator
 		license.appendText(" of the ODbL.");
 	}
 
-	private void userGuide()
+	private void documentation()
 	{
-		content.ac(HTML.h1("User Guide"));
-
-		content.appendText(
-				" The desktop software is already in a partially usable state, however there are no installers available yet.");
-		content.appendText(
-				" Hence some familiarity with software development is still required to get the software running.");
-	}
-
-	private void developerGuide()
-	{
-		content.ac(HTML.h1("Developer Guide"));
+		content.ac(HTML.h1("Documentation"));
 
 		UnorderedList list = content.ac(HTML.ul());
 
-		UnorderedList github = content.ac(HTML.ul());
-		ListItem itemGithub = list.addItem();
-		itemGithub.appendText("We use GitHub to coordinate development:");
-		itemGithub.ac(github);
+		ListItem userGuide = list.addItem();
+		userGuide.ac(HTML.a(getLink(PathHelper.userGuide()), "User Guide"));
 
-		github.addItem().appendText("The main repository for soure code: ")
-				.ap(Links.github("OpenMetroMaps", "OpenMetroMaps"));
-		github.addItem().appendText("This website's code: ")
-				.ap(Links.github("OpenMetroMaps", "openmetromaps.org"));
-		github.addItem().appendText("An organization for data projects: ")
-				.ap(Links.github("OpenMetroMapsData"));
-		github.addItem()
-				.appendText("We use ").ap(Links.github("OpenMetroMaps",
-						"OpenMetroMaps", "/issues", "GitHub issues"))
-				.appendText(" as a Bug Tracker");
-		list.addItem().appendText("Subscribe to the ")
-				.ap(HTML.a("https://www.freelists.org/list/openmetromaps",
-						"Mailing List"))
-				.appendText(
-						" to participate in discussions around the project");
+		ListItem devGuide = list.addItem();
+		devGuide.ac(HTML.a(getLink(PathHelper.devGuide()), "Developer Guide"));
 	}
 
 	private void funding()

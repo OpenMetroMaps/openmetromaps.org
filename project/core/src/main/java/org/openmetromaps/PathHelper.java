@@ -16,4 +16,14 @@ public class PathHelper
 		return WebPaths.get("demo");
 	}
 
+	public static WebPath devGuide()
+	{
+		return WebPaths.get("developer-guide");
+	}
+
+	public static WebPath userGuide()
+	{
+		return WebPaths.get("user-guide");
+	}
+
 }

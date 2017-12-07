@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.openmetromaps.pages.AboutGenerator;
 import org.openmetromaps.pages.DemoGenerator;
+import org.openmetromaps.pages.DeveloperGuideGenerator;
 import org.openmetromaps.pages.IndexGenerator;
+import org.openmetromaps.pages.UserGuideGenerator;
 
 import de.topobyte.jsoup.ContentGeneratable;
 import de.topobyte.jsoup.JsoupServletUtil;
@@ -46,6 +48,10 @@ public class IndexServlet extends HttpServlet
 				generator = new AboutGenerator(context, path);
 			} else if (first.equals("demo")) {
 				generator = new DemoGenerator(context, path);
+			} else if (first.equals("user-guide")) {
+				generator = new UserGuideGenerator(context, path);
+			} else if (first.equals("developer-guide")) {
+				generator = new DeveloperGuideGenerator(context, path);
 			}
 		}
 
