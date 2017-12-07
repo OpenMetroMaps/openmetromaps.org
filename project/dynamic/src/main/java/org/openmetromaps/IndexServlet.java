@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.openmetromaps.pages.AboutGenerator;
 import org.openmetromaps.pages.DemoGenerator;
 import org.openmetromaps.pages.DeveloperGuideGenerator;
+import org.openmetromaps.pages.FAQGenerator;
 import org.openmetromaps.pages.IndexGenerator;
 import org.openmetromaps.pages.UserGuideGenerator;
 
@@ -52,6 +53,8 @@ public class IndexServlet extends HttpServlet
 				generator = new UserGuideGenerator(context, path);
 			} else if (first.equals("developer-guide")) {
 				generator = new DeveloperGuideGenerator(context, path);
+			} else if (first.equals("faq")) {
+				generator = new FAQGenerator(context, path);
 			}
 		}
 
