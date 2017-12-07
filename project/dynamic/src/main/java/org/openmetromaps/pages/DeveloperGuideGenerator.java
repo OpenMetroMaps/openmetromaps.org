@@ -63,7 +63,7 @@ public class DeveloperGuideGenerator extends BaseGenerator
 
 	private void gettingStarted()
 	{
-		content.ac(HTML.h1("Getting Started"));
+		content.ac(HTML.h2("Getting Started"));
 
 		content.appendText("As a first step, we recommend to get the desktop ");
 		content.appendText(" tools running. How to do this ");
