@@ -41,9 +41,9 @@ public class IndexGenerator extends BaseGenerator
 
 		mission();
 
-		projectInfo();
+		status();
 
-		demo();
+		license();
 
 		userGuide();
 
@@ -71,18 +71,9 @@ public class IndexGenerator extends BaseGenerator
 				" We're here to change that by providing open source tools and file formats for creating free schematic metro maps.");
 	}
 
-	private void projectInfo()
-	{
-		content.ac(HTML.h1("Project Information"));
-
-		status();
-
-		license();
-	}
-
 	private void status()
 	{
-		content.ac(HTML.h2("Status"));
+		content.ac(HTML.h1("Project status"));
 
 		Element status = content.ac(HTML.span());
 
@@ -92,7 +83,12 @@ public class IndexGenerator extends BaseGenerator
 		status.appendText(
 				" At this point, some expertise in programming is required to get involved with the project.");
 
-		status.appendText(" You can follow us on ");
+		status.appendText(
+				" To get an impression of what we're getting at, have a look at the ");
+		status.ac(HTML.a("demo", "Demo page"));
+		status.appendText(".");
+
+		status.appendText(" You can also follow us on ");
 		status.ac(HTML.a("https://twitter.com/openmetromaps", "Twitter"));
 
 		status.appendText(
@@ -104,7 +100,7 @@ public class IndexGenerator extends BaseGenerator
 
 	private void license()
 	{
-		content.ac(HTML.h2("License"));
+		content.ac(HTML.h1("License"));
 
 		Element license = content.ac(HTML.span());
 
@@ -133,17 +129,6 @@ public class IndexGenerator extends BaseGenerator
 		license.ac(HTML.a("https://opendatacommons.org/licenses/odbl/summary/",
 				"plain language summary"));
 		license.appendText(" of the ODbL.");
-	}
-
-	private void demo()
-	{
-		content.ac(HTML.h1("Demo"));
-
-		content.appendText(
-				"To get an impression of what we're getting at, have a look at the ");
-		content.ac(HTML.a("demo", "Demo page"));
-		content.appendText(
-				". Bear in mind that the project is in a very early stage.");
 	}
 
 	private void userGuide()
