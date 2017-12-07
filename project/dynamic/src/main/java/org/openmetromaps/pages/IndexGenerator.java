@@ -65,6 +65,9 @@ public class IndexGenerator extends BaseGenerator
 				" Furthermore, you only get a PDF document – this makes interactive content hard to create.");
 		content.appendText(
 				" We're here to change that by providing open source tools and file formats for creating free schematic metro maps.");
+
+		content.ac(HTML.a(getLink(PathHelper.mission()), "Read more"));
+		content.appendText(".");
 	}
 
 	private void status()

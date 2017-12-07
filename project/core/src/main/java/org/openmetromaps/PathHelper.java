@@ -16,6 +16,11 @@ public class PathHelper
 		return WebPaths.get("demo");
 	}
 
+	public static WebPath mission()
+	{
+		return WebPaths.get("mission");
+	}
+
 	public static WebPath devGuide()
 	{
 		return WebPaths.get("developer-guide");
