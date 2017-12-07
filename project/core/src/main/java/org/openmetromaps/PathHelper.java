@@ -26,4 +26,9 @@ public class PathHelper
 		return WebPaths.get("user-guide");
 	}
 
+	public static WebPath faq()
+	{
+		return WebPaths.get("faq");
+	}
+
 }

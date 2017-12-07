@@ -140,6 +140,16 @@ public class IndexGenerator extends BaseGenerator
 				" If you would like to help improve the software, read the ");
 		content.ac(HTML.a(getLink(PathHelper.devGuide()), "Developer Guide"));
 		content.appendText(".");
+
+		content.appendText(" There's also a list of ");
+		content.ac(HTML.a(getLink(PathHelper.faq()),
+				"Frequently Asked Questions"));
+		content.appendText(".");
+
+		content.appendText(" Otherwise get in touch via the ");
+		content.ac(HTML.a("https://www.freelists.org/list/openmetromaps",
+				"Mailing List"));
+		content.appendText(".");
 	}
 
 	private void funding()
