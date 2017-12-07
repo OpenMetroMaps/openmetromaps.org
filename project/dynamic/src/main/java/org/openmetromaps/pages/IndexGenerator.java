@@ -8,8 +8,6 @@ import org.openmetromaps.PathHelper;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.components.Div;
 import de.topobyte.jsoup.components.Img;
-import de.topobyte.jsoup.components.ListItem;
-import de.topobyte.jsoup.components.UnorderedList;
 import de.topobyte.jsoup.nodes.Element;
 import de.topobyte.pagegen.core.Context;
 import de.topobyte.webpaths.WebPath;
@@ -133,13 +131,15 @@ public class IndexGenerator extends BaseGenerator
 	{
 		content.ac(HTML.h1("Documentation"));
 
-		UnorderedList list = content.ac(HTML.ul());
+		content.appendText(
+				"If you're interested in viewing maps, making your own maps or customizing existing ones, have a look at the ");
+		content.ac(HTML.a(getLink(PathHelper.userGuide()), "User Guide"));
+		content.appendText(".");
 
-		ListItem userGuide = list.addItem();
-		userGuide.ac(HTML.a(getLink(PathHelper.userGuide()), "User Guide"));
-
-		ListItem devGuide = list.addItem();
-		devGuide.ac(HTML.a(getLink(PathHelper.devGuide()), "Developer Guide"));
+		content.appendText(
+				" If you would like to help improve the software, read the ");
+		content.ac(HTML.a(getLink(PathHelper.devGuide()), "Developer Guide"));
+		content.appendText(".");
 	}
 
 	private void funding()
