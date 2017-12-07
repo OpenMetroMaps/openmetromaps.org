@@ -42,7 +42,7 @@ public class DemoGenerator extends BaseGenerator
 		content.ap(HTML.h1("Demo"));
 
 		content.appendText(
-				"The Berlin metro system is a used as a testing ground for the components");
+				"The Berlin metro system is used as a testing ground for the components");
 		content.appendText(" developed for OpenMetroMaps.");
 		content.appendText(
 				" The examples below feature the work-in-progress maps of Berlin.");
