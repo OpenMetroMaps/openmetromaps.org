@@ -1,11 +1,13 @@
 package org.openmetromaps.pages;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
+import org.apache.commons.io.IOUtils;
 import org.openmetromaps.BaseGenerator;
-import org.openmetromaps.PathHelper;
+import org.openmetromaps.Markdown;
 
-import de.topobyte.jsoup.HTML;
 import de.topobyte.pagegen.core.Context;
 import de.topobyte.webpaths.WebPath;
 
@@ -24,24 +26,13 @@ public class UserGuideGenerator extends BaseGenerator
 
 		menu();
 
-		content();
+		InputStream input = Thread.currentThread().getContextClassLoader()
+				.getResourceAsStream("markdown/user-guide.md");
+		String markdown = IOUtils.toString(input, StandardCharsets.UTF_8);
+
+		Markdown.generate(content, markdown);
 
 		footer();
-	}
-
-	private void content()
-	{
-		content.ac(HTML.h1("User Guide"));
-
-		content.appendText(
-				" The desktop software is already in a partially usable state, however there are no installers available yet.");
-		content.appendText(
-				" Hence some familiarity with software development is still required to get the software running.");
-
-		content.appendText(" We hope to expand this page soon, but up to now,");
-		content.appendText(" please refer to the ");
-		content.ac(HTML.a(getLink(PathHelper.devGuide()), "Developer Guide"));
-		content.appendText(" for setup instructions.");
 	}
 
 }
