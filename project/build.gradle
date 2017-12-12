@@ -52,6 +52,9 @@ project(':openmetromaps-dynamic') {
         compile 'de.topobyte:system-utils:0.0.1'
         compile 'de.topobyte:jsoup-servlet:0.0.1'
         compile 'de.topobyte:jsoup-utils:0.0.1'
+        compile 'com.vladsch.flexmark:flexmark:0.22.20'
+        compile 'com.vladsch.flexmark:flexmark-ext-gfm-strikethrough:0.22.20'
+        compile 'com.vladsch.flexmark:flexmark-ext-tables:0.22.20'
 
         providedCompile 'javax.servlet:javax.servlet-api:3.+'
         providedCompile 'javax.servlet.jsp:jsp-api:2.1'
