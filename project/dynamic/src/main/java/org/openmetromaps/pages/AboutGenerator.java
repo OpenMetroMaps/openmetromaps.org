@@ -1,11 +1,13 @@
 package org.openmetromaps.pages;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
+import org.apache.commons.io.IOUtils;
 import org.openmetromaps.BaseGenerator;
+import org.openmetromaps.Markdown;
 
-import de.topobyte.jsoup.ElementBuilder;
-import de.topobyte.jsoup.HTML;
 import de.topobyte.pagegen.core.Context;
 import de.topobyte.webpaths.WebPath;
 
@@ -24,19 +26,11 @@ public class AboutGenerator extends BaseGenerator
 
 		menu();
 
-		content.ap(HTML.h1("Impressum"));
+		InputStream input = Thread.currentThread().getContextClassLoader()
+				.getResourceAsStream("markdown/impressum.md");
+		String markdown = IOUtils.toString(input, StandardCharsets.UTF_8);
 
-		content.appendText("Sebastian Kürten");
-		content.ap(HTML.br());
-		content.appendText("Siegfriedstr. 21");
-		content.ap(HTML.br());
-		content.appendText("12051 Berlin");
-		content.ap(HTML.br());
-		content.ap(HTML.br());
-		content.appendText("Mail: ");
-		content.ap(ElementBuilder.createAnchor(
-				"mailto:sebastian@openmetromaps.org",
-				"sebastian@openmetromaps.org"));
+		Markdown.generate(content, markdown);
 
 		footer();
 	}
