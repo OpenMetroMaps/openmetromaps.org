@@ -8,13 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.openmetromaps.pages.AboutGenerator;
 import org.openmetromaps.pages.DemoGenerator;
 import org.openmetromaps.pages.DeveloperGuideGenerator;
 import org.openmetromaps.pages.FAQGenerator;
 import org.openmetromaps.pages.IndexGenerator;
+import org.openmetromaps.pages.MarkdownGenerator;
 import org.openmetromaps.pages.MissionGenerator;
-import org.openmetromaps.pages.UserGuideGenerator;
 
 import de.topobyte.jsoup.ContentGeneratable;
 import de.topobyte.jsoup.JsoupServletUtil;
@@ -47,13 +46,15 @@ public class IndexServlet extends HttpServlet
 		} else if (nc == 1 && !path.isDir()) {
 			String first = path.getName(0);
 			if (first.equals("about")) {
-				generator = new AboutGenerator(context, path);
+				generator = new MarkdownGenerator(context, path,
+						"markdown/impressum.md");
 			} else if (first.equals("demo")) {
 				generator = new DemoGenerator(context, path);
 			} else if (first.equals("mission")) {
 				generator = new MissionGenerator(context, path);
 			} else if (first.equals("user-guide")) {
-				generator = new UserGuideGenerator(context, path);
+				generator = new MarkdownGenerator(context, path,
+						"markdown/user-guide.md");
 			} else if (first.equals("developer-guide")) {
 				generator = new DeveloperGuideGenerator(context, path);
 			} else if (first.equals("faq")) {
