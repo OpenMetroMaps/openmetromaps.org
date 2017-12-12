@@ -13,7 +13,6 @@ import org.openmetromaps.pages.DeveloperGuideGenerator;
 import org.openmetromaps.pages.FAQGenerator;
 import org.openmetromaps.pages.IndexGenerator;
 import org.openmetromaps.pages.MarkdownGenerator;
-import org.openmetromaps.pages.MissionGenerator;
 
 import de.topobyte.jsoup.ContentGeneratable;
 import de.topobyte.jsoup.JsoupServletUtil;
@@ -51,7 +50,8 @@ public class IndexServlet extends HttpServlet
 			} else if (first.equals("demo")) {
 				generator = new DemoGenerator(context, path);
 			} else if (first.equals("mission")) {
-				generator = new MissionGenerator(context, path);
+				generator = new MarkdownGenerator(context, path,
+						"markdown/mission.md");
 			} else if (first.equals("user-guide")) {
 				generator = new MarkdownGenerator(context, path,
 						"markdown/user-guide.md");
