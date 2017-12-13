@@ -3,6 +3,7 @@ package org.openmetromaps.pages;
 import java.io.IOException;
 
 import org.openmetromaps.BaseGenerator;
+import org.openmetromaps.PathHelper;
 
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.components.Div;
@@ -41,12 +42,10 @@ public class FAQGenerator extends BaseGenerator
 
 		add(list, "Questions will go here?", "Absolutely!");
 
-		add(list, "My question is not answered, what can I do?",
-				HTML.span().appendText("You can get in touch via the ")
-						.appendChild(
-								HTML.a("https://www.freelists.org/list/openmetromaps",
-										"Mailing List"))
-						.appendText("."));
+		add(list, "My question is not answered, what can I do?", HTML.span()
+				.appendText("You can get in touch via the ").appendChild(HTML
+						.a(getLink(PathHelper.mailingList()), "Mailing List"))
+				.appendText("."));
 	}
 
 	private Div question()

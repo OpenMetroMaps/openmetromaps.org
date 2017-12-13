@@ -36,4 +36,9 @@ public class PathHelper
 		return WebPaths.get("faq");
 	}
 
+	public static WebPath mailingList()
+	{
+		return WebPaths.get("mailing-list");
+	}
+
 }
