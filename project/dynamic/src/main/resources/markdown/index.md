@@ -39,4 +39,4 @@ customizing existing ones, have a look at the [[User Guide|user-guide]].
 If you would like to help improve the software, read
 [[the Developer Guide|developer-guide]]. There's also a list of
 [[Frequently Asked Questions|faq]]. Otherwise get in touch via
-the [Mailing List](https://www.freelists.org/list/openmetromaps).
+the [[Mailing List|mailing-list]].

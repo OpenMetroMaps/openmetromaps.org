@@ -57,6 +57,9 @@ public class IndexServlet extends HttpServlet
 			} else if (first.equals("developer-guide")) {
 				generator = new MarkdownGenerator(context, path,
 						"markdown/developer-guide.md");
+			} else if (first.equals("mailing-list")) {
+				generator = new MarkdownGenerator(context, path,
+						"markdown/mailing-list.md");
 			} else if (first.equals("faq")) {
 				generator = new FAQGenerator(context, path);
 			}

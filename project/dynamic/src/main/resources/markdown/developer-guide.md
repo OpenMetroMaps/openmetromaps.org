@@ -5,8 +5,8 @@
   * An organization for data projects: [[@github(OpenMetroMapsData)]]
   * We use [[GitHub issues|@github(OpenMetroMaps, OpenMetroMaps, /issues)]] as
     a Bug Tracker
-* Subscribe to the [Mailing List](https://www.freelists.org/list/openmetromaps)
-  to participate in discussions around the project
+* Subscribe to the [[Mailing List|mailing-list]] to participate in discussions
+  around the project
 
 ## Getting Started
 As a first step, we recommend to get the desktop tools running. How to do this
