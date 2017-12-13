@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 import org.apache.commons.io.IOUtils;
+import org.openmetromaps.flexmark.CustomExtension;
 
 import com.vladsch.flexmark.Extension;
 import com.vladsch.flexmark.ast.Document;
@@ -37,9 +38,10 @@ public class Markdown
 
 		Extension strikethrough = StrikethroughExtension.create();
 		Extension wikilink = WikiLinkExtension.create();
+		Extension custom = CustomExtension.create();
 
 		options.set(Parser.EXTENSIONS,
-				Arrays.asList(tables, strikethrough, wikilink));
+				Arrays.asList(tables, strikethrough, custom, wikilink));
 	}
 
 	private static Parser parser()
