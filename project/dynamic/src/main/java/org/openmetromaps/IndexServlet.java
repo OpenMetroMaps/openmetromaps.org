@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.openmetromaps.pages.DemoGenerator;
-import org.openmetromaps.pages.DeveloperGuideGenerator;
 import org.openmetromaps.pages.FAQGenerator;
 import org.openmetromaps.pages.IndexGenerator;
 import org.openmetromaps.pages.MarkdownGenerator;
@@ -56,7 +55,8 @@ public class IndexServlet extends HttpServlet
 				generator = new MarkdownGenerator(context, path,
 						"markdown/user-guide.md");
 			} else if (first.equals("developer-guide")) {
-				generator = new DeveloperGuideGenerator(context, path);
+				generator = new MarkdownGenerator(context, path,
+						"markdown/developer-guide.md");
 			} else if (first.equals("faq")) {
 				generator = new FAQGenerator(context, path);
 			}
