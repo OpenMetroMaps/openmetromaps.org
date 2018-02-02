@@ -29,10 +29,6 @@ public class BaseGenerator extends BootstrapGenerator
 		Favicons.addToHeader(head, "images/favicon-48.png", 48);
 		Favicons.addToHeader(head, "images/favicon-64.png", 64);
 		Favicons.addToHeader(head, "images/favicon-96.png", 96);
-
-		head.appendChild(create("link", "href",
-				"https://fonts.googleapis.com/css?family=Ultra", "rel",
-				"stylesheet"));
 	}
 
 	protected void menu()
