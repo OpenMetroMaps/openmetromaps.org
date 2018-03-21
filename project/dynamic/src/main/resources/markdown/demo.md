@@ -15,6 +15,8 @@ Here are links to instances of the
 * [Berlin, schematic](http://demo.openmetromaps.org/berlin/schematic.html)
 * [Berlin, geographic](http://demo.openmetromaps.org/berlin/geographic.html)
 * [Berlin, nick names](http://demo.openmetromaps.org/berlin/nicknames.html)
+* [Vienna, schematic](http://demo.openmetromaps.org/vienna/schematic.html)
+* [Vienna, geographic](http://demo.openmetromaps.org/vienna/geographic.html)
 
 ## File Format
 One major goal of OpenMetroMaps is to define a file format for storing metro
