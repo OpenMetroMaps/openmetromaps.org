@@ -12,11 +12,11 @@ which is used for creating and editing maps:
 ## Web Viewer
 Here are links to instances of the
 [[JavaScript view|@github(OpenMetroMaps, OpenMetroMaps, #web-viewer)]]:
-* [Berlin, schematic](http://demo.openmetromaps.org/berlin/schematic.html)
-* [Berlin, geographic](http://demo.openmetromaps.org/berlin/geographic.html)
-* [Berlin, nick names](http://demo.openmetromaps.org/berlin/nicknames.html)
-* [Vienna, schematic](http://demo.openmetromaps.org/vienna/schematic.html)
-* [Vienna, geographic](http://demo.openmetromaps.org/vienna/geographic.html)
+* [Berlin, schematic](https://demo.openmetromaps.org/berlin/schematic.html)
+* [Berlin, geographic](https://demo.openmetromaps.org/berlin/geographic.html)
+* [Berlin, nick names](https://demo.openmetromaps.org/berlin/nicknames.html)
+* [Vienna, schematic](https://demo.openmetromaps.org/vienna/schematic.html)
+* [Vienna, geographic](https://demo.openmetromaps.org/vienna/geographic.html)
 
 ## File Format
 One major goal of OpenMetroMaps is to define a file format for storing metro
