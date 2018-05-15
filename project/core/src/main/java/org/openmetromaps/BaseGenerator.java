@@ -1,5 +1,7 @@
 package org.openmetromaps;
 
+import static de.topobyte.jsoup.ElementBuilder.styleSheet;
+
 import java.io.IOException;
 
 import org.jsoup.nodes.Element;
@@ -7,6 +9,7 @@ import org.jsoup.nodes.Element;
 import de.topobyte.pagegen.bootstrap.BootstrapGenerator;
 import de.topobyte.pagegen.core.Context;
 import de.topobyte.webpaths.WebPath;
+import de.topobyte.webpaths.WebPaths;
 
 public class BaseGenerator extends BootstrapGenerator
 {
@@ -21,6 +24,8 @@ public class BaseGenerator extends BootstrapGenerator
 	{
 		super.generate();
 		Element head = builder.getHead();
+
+		head.appendChild(styleSheet(getLink(WebPaths.get("custom.css"))));
 
 		Favicons.addToHeader(head, "images/favicon-16.png", 16);
 		Favicons.addToHeader(head, "images/favicon-32.png", 32);
