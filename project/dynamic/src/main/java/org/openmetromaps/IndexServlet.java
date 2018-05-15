@@ -42,10 +42,7 @@ public class IndexServlet extends HttpServlet
 			generator = new IndexGenerator(context, path);
 		} else if (nc == 1 && !path.isDir()) {
 			String first = path.getName(0);
-			if (first.equals("about")) {
-				generator = new MarkdownGenerator(context, path,
-						"markdown/impressum.md");
-			} else if (first.equals("demo")) {
+			if (first.equals("demo")) {
 				generator = new MarkdownGenerator(context, path,
 						"markdown/demo.md");
 			} else if (first.equals("mission")) {
@@ -60,6 +57,12 @@ public class IndexServlet extends HttpServlet
 			} else if (first.equals("mailing-list")) {
 				generator = new MarkdownGenerator(context, path,
 						"markdown/mailing-list.md");
+			} else if (first.equals("imprint")) {
+				generator = new MarkdownGenerator(context, path,
+						"markdown/impressum.md");
+			} else if (first.equals("privacy-policy")) {
+				generator = new MarkdownGenerator(context, path,
+						"markdown/privacy-policy.md");
 			} else if (first.equals("faq")) {
 				generator = new FAQGenerator(context, path);
 			}
