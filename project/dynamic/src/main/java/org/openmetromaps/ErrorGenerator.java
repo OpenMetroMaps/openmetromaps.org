@@ -22,7 +22,7 @@ public class ErrorGenerator extends BootstrapGenerator
 		MainMenu menu = new MainMenu(this);
 		getBuilder().getBody().prependChild(menu);
 
-		getBuilder().getBody().appendChild(new Footer());
+		getBuilder().getBody().appendChild(new Footer(this));
 	}
 
 }

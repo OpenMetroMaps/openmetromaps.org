@@ -1,7 +1,5 @@
 package org.openmetromaps;
 
-import static de.topobyte.jsoup.ElementBuilder.create;
-
 import java.io.IOException;
 
 import org.jsoup.nodes.Element;
@@ -39,7 +37,7 @@ public class BaseGenerator extends BootstrapGenerator
 
 	protected void footer()
 	{
-		getBuilder().getBody().appendChild(new Footer());
+		getBuilder().getBody().appendChild(new Footer(this));
 	}
 
 }

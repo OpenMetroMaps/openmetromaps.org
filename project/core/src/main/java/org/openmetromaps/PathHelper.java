@@ -6,6 +6,16 @@ import de.topobyte.webpaths.WebPaths;
 public class PathHelper
 {
 
+	public static WebPath imprint()
+	{
+		return WebPaths.get("imprint");
+	}
+
+	public static WebPath privacyPolicy()
+	{
+		return WebPaths.get("privacy-policy");
+	}
+
 	public static WebPath demo()
 	{
 		return WebPaths.get("demo");
