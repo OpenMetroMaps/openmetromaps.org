@@ -31,7 +31,7 @@ public class MainMenu extends Menu
 
 		addBrand(brand);
 
-		String aboutLink = resolver.getLink(PathHelper.about());
+		String aboutLink = resolver.getLink(PathHelper.mission());
 		String demoLink = resolver.getLink(PathHelper.demo());
 		String devGuideLink = resolver.getLink(PathHelper.devGuide());
 
