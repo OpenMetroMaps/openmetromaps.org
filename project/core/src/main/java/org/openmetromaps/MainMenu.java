@@ -32,6 +32,14 @@ public class MainMenu extends Menu
 		addBrand(brand);
 
 		String aboutLink = resolver.getLink(PathHelper.about());
+		String demoLink = resolver.getLink(PathHelper.demo());
+		String devGuideLink = resolver.getLink(PathHelper.devGuide());
+
+		Element linkDemo = a(demoLink).inner("Demo");
+		addMain(linkDemo, false);
+
+		Element linkDevGuide = a(devGuideLink).inner("Developer Guide");
+		addMain(linkDevGuide, false);
 
 		Element linkAbout = a(aboutLink).inner("About");
 		addRight(linkAbout, false);
