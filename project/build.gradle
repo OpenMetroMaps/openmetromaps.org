@@ -32,6 +32,11 @@ project(':openmetromaps-dynamic') {
     apply plugin: 'eclipse-wtp'
 }
 
+subprojects {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
 project(':openmetromaps-core') {
     dependencies {
         compile 'de.topobyte:jsoup-elements:0.0.16'
