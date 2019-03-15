@@ -2,8 +2,8 @@ plugins {
     id 'com.craigburke.bower-installer' version '2.5.1'
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.14'
+wrapper {
+    gradleVersion = '5.2.1'
 }
 
 allprojects {
