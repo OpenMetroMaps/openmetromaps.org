@@ -87,8 +87,8 @@ project(':openmetromaps-dynamic') {
     eclipse.classpath.file {
         withXml {
             def node = it.asNode()
-            node.appendNode('classpathentry', [kind: 'src', path: 'logging/devel'])
-            node.appendNode('classpathentry', [kind: 'src', path: 'config/devel'])
+            node.appendNode('classpathentry', [kind: 'src', output: 'bin/main', path: 'logging/devel'])
+            node.appendNode('classpathentry', [kind: 'src', output: 'bin/main', path: 'config/devel'])
         }
         // Classpath entry for Eclipse which changes the order of classpathentries; otherwise no sources for 3rd party jars are shown
         withXml { xml ->
