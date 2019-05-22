@@ -26,7 +26,7 @@ public class RootFilter implements Filter
 	private static List<String> statics = new ArrayList<>();
 
 	static {
-		statics.add("/bower/");
+		statics.add("/client/");
 		statics.add("/images/");
 		statics.add("/favicon.ico");
 		statics.add("/custom.css");

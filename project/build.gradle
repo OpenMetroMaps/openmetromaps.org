@@ -1,5 +1,12 @@
-plugins {
-    id 'com.craigburke.bower-installer' version '2.5.1'
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath 'gradle.plugin.com.craigburke.gradle:client-dependencies:1.4.0'
+    }
 }
 
 wrapper {
@@ -30,6 +37,7 @@ project(':openmetromaps-core') {
 project(':openmetromaps-dynamic') {
     apply plugin: 'war'
     apply plugin: 'eclipse-wtp'
+    apply plugin: 'com.craigburke.client-dependencies'
 }
 
 subprojects {
@@ -42,8 +50,8 @@ project(':openmetromaps-core') {
         compile 'de.topobyte:jsoup-elements:0.0.16'
         compile 'de.topobyte:jsoup-bootstrap:0.0.8'
         compile 'de.topobyte:webpaths-core:0.0.1'
-        compile 'de.topobyte:pagegen-core:0.0.1'
-        compile 'de.topobyte:pagegen-bootstrap:0.0.2'
+        compile 'de.topobyte:pagegen-core:0.1.0'
+        compile 'de.topobyte:pagegen-bootstrap:0.1.1'
         compile 'commons-io:commons-io:2.4'
 
         testCompile 'junit:junit:4.12'
@@ -79,7 +87,7 @@ project(':openmetromaps-dynamic') {
                 deployName = 'openmetromaps'
                 resource deployPath: '/', sourcePath: 'src/main/webapp'
                 resource deployPath: '/', sourcePath: 'res'
-                resource deployPath: '/', sourcePath: 'res_bower'
+                resource deployPath: '/client', sourcePath: 'src/assets/vendor'
                 resource deployPath: '/', sourcePath: 'build/favicons'
             }
         }
@@ -98,24 +106,19 @@ project(':openmetromaps-dynamic') {
         }
     }
 
-    bower {
-        installBase = 'bower'
-
-        'jquery'('2.2.2') {
-            source 'dist/*.js' >> 'js/'
-        }
-
-        'bootstrap'('3.3.6') {
-            source 'dist/css/*.css' >> 'styles/'
-            source 'dist/fonts/**' >> 'fonts/'
-            source 'dist/js/*.js' >> 'js/'
-            source 'js/*.js' >> 'js/'
+    clientDependencies {
+        copyExcludes = ['**/*.map', '**/Gruntfile.js', 'gulpfile.js', 'source/**']
+        yarn {
+            'jquery'('2.2.2')
+            'bootstrap'('3.3.6')
         }
     }
 
     def commonWarDefs = {
         from 'res'
-        from 'res_bower'
+        from ('src/assets/vendor') {
+            into 'client'
+        }
         from 'build/favicons'
     }
 
@@ -125,7 +128,7 @@ project(':openmetromaps-dynamic') {
     }
 
     [war].each { task ->
-        task.dependsOn bowerInstall
+        task.dependsOn clientInstall
         task.from ('logging/' + task.classifier) {
             into('WEB-INF/classes')
             include "**/*"
