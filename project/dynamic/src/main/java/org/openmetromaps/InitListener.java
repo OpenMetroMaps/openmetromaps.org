@@ -8,9 +8,10 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-import org.apache.log4j.LogManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import ch.qos.logback.classic.LoggerContext;
 
 @WebListener
 public class InitListener implements ServletContextListener
@@ -41,8 +42,10 @@ public class InitListener implements ServletContextListener
 	{
 		logger.info("context destroyed");
 
-		logger.info("shutting down LogManager");
-		LogManager.shutdown();
+		logger.info("shutting down Logback");
+		LoggerContext loggerContext = (LoggerContext) LoggerFactory
+				.getILoggerFactory();
+		loggerContext.stop();
 	}
 
 }

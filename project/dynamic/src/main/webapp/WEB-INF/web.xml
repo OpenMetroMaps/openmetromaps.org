@@ -4,6 +4,10 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
 	<display-name>openmetromaps</display-name>
+	<context-param>
+		<param-name>logbackDisableServletContainerInitializer</param-name>
+		<param-value>true</param-value>
+	</context-param>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
