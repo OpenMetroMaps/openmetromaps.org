@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import org.jsoup.nodes.Element;
 
+import de.topobyte.jsoup.FaviconUtil;
 import de.topobyte.pagegen.bootstrap.BootstrapGenerator;
 import de.topobyte.pagegen.core.Context;
 import de.topobyte.webpaths.WebPath;
@@ -27,11 +28,11 @@ public class BaseGenerator extends BootstrapGenerator
 
 		head.appendChild(styleSheet(getLink(WebPaths.get("custom.css"))));
 
-		Favicons.addToHeader(head, "images/favicon-16.png", 16);
-		Favicons.addToHeader(head, "images/favicon-32.png", 32);
-		Favicons.addToHeader(head, "images/favicon-48.png", 48);
-		Favicons.addToHeader(head, "images/favicon-64.png", 64);
-		Favicons.addToHeader(head, "images/favicon-96.png", 96);
+		FaviconUtil.addToHeader(head, "images/favicon-16.png", 16);
+		FaviconUtil.addToHeader(head, "images/favicon-32.png", 32);
+		FaviconUtil.addToHeader(head, "images/favicon-48.png", 48);
+		FaviconUtil.addToHeader(head, "images/favicon-64.png", 64);
+		FaviconUtil.addToHeader(head, "images/favicon-96.png", 96);
 	}
 
 	protected void menu()
