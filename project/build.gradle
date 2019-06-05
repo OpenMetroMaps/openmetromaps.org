@@ -48,9 +48,9 @@ subprojects {
 
 project(':openmetromaps-core') {
     dependencies {
-        compile 'de.topobyte:jsoup-elements:0.0.16'
-        compile 'de.topobyte:jsoup-bootstrap:0.0.8'
-        compile 'de.topobyte:webpaths-core:0.0.1'
+        compile 'de.topobyte:jsoup-elements:0.1.1'
+        compile 'de.topobyte:jsoup-bootstrap:0.1.2'
+        compile 'de.topobyte:webpaths-core:0.0.2'
         compile 'de.topobyte:pagegen-core:0.1.0'
         compile 'de.topobyte:pagegen-bootstrap:0.1.1'
         compile 'commons-io:commons-io:2.4'
@@ -64,8 +64,8 @@ project(':openmetromaps-dynamic') {
         compile project(':openmetromaps-core')
 
         compile 'de.topobyte:system-utils:0.0.1'
-        compile 'de.topobyte:jsoup-servlet:0.0.1'
-        compile 'de.topobyte:jsoup-utils:0.0.1'
+        compile 'de.topobyte:jsoup-servlet:0.1.0'
+        compile 'de.topobyte:jsoup-utils:0.1.3'
         compile 'com.vladsch.flexmark:flexmark:0.28.18'
         compile 'com.vladsch.flexmark:flexmark-ext-gfm-strikethrough:0.28.18'
         compile 'com.vladsch.flexmark:flexmark-ext-tables:0.28.18'
