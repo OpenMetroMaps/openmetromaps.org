@@ -136,6 +136,7 @@ project(':openmetromaps-dynamic') {
 
     [war].each { task ->
         task.dependsOn clientInstall
+        task.dependsOn generateFavicons
         task.from ('logging/' + task.classifier) {
             into('WEB-INF/classes')
             include "**/*"
@@ -145,6 +146,4 @@ project(':openmetromaps-dynamic') {
             include "**/*"
         }
     }
-
-    war.dependsOn generateFavicons
 }
