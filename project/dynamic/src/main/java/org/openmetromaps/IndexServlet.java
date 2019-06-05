@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.openmetromaps.pages.FAQGenerator;
 import org.openmetromaps.pages.IndexGenerator;
 import org.openmetromaps.pages.MarkdownGenerator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.topobyte.jsoup.ContentGeneratable;
 import de.topobyte.jsoup.JsoupServletUtil;
@@ -20,6 +22,8 @@ import de.topobyte.webpaths.WebPaths;
 @WebServlet("/pages/*")
 public class IndexServlet extends HttpServlet
 {
+
+	final static Logger logger = LoggerFactory.getLogger(IndexServlet.class);
 
 	private static final long serialVersionUID = 1L;
 
@@ -32,8 +36,8 @@ public class IndexServlet extends HttpServlet
 		WebPath path = WebPaths.get(uri);
 		int nc = path.getNameCount();
 
-		System.out.println("URI: " + uri);
-		System.out.println("Path: " + path);
+		logger.info("URI: " + uri);
+		logger.info("Path: " + path);
 
 		WebContext context = new WebContext();
 
