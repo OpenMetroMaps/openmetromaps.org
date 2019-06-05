@@ -1,11 +1,11 @@
 buildscript {
     repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url 'http://mvn.topobyte.de' }
     }
     dependencies {
         classpath 'gradle.plugin.com.craigburke.gradle:client-dependencies:1.4.0'
+        classpath('de.topobyte:gradle-generate-favicons-plugin:0.0.1');
     }
 }
 
@@ -38,6 +38,7 @@ project(':openmetromaps-dynamic') {
     apply plugin: 'war'
     apply plugin: 'eclipse-wtp'
     apply plugin: 'com.craigburke.client-dependencies'
+    apply plugin: 'de.topobyte.generate-favicons-gradle-plugin'
 }
 
 subprojects {
@@ -75,6 +76,12 @@ project(':openmetromaps-dynamic') {
 
         compile 'org.slf4j:slf4j-api:1.7.20'
         compile 'ch.qos.logback:logback-classic:1.2.3'
+    }
+}
+
+project(':openmetromaps-dynamic') {
+    favicons {
+        input = 'res/images/icon.svg'
     }
 }
 
@@ -138,42 +145,5 @@ project(':openmetromaps-dynamic') {
         }
     }
 
-    task generateIcons {
-        doLast {
-            def svg = 'res/images/icon.svg'
-            def dir = new File(buildDir, 'favicons')
-            def subdir = new File(dir, 'images')
-            dir.mkdirs()
-            subdir.mkdirs()
-            def out = 'favicon-%d.png'
-            def sizes = [16, 32, 48, 64, 96]
-            for (size in sizes) {
-                def filename = String.format(out, size)
-                def file = new File(subdir, filename)
-                println 'Generate icon: ' + file
-                exec {
-                    commandLine = 'inkscape'
-                    args = ['-C', '-h', size, '-e', file.toString(), svg]
-                }
-            }
-
-            def icoFile = new File(dir, 'favicon.ico')
-            println 'Generate icon: ' + icoFile
-
-            def icoFiles = []
-            def icoSizes = [16, 32, 48, 64]
-            for (size in icoSizes) {
-                def filename = String.format(out, size)
-                def file = new File(subdir, filename)
-                icoFiles << file.toString()
-            }
-            exec {
-                commandLine = 'convert'
-                args icoFiles
-                args icoFile.toString()
-            }
-        }
-    }
-
-    war.dependsOn generateIcons
+    war.dependsOn generateFavicons
 }
