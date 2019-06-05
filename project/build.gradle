@@ -1,11 +1,11 @@
 buildscript {
     repositories {
-        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url 'https://plugins.gradle.org/m2/' }
         maven { url 'http://mvn.topobyte.de' }
     }
     dependencies {
-        classpath 'gradle.plugin.com.craigburke.gradle:client-dependencies:1.4.0'
-        classpath('de.topobyte:gradle-generate-favicons-plugin:0.0.1');
+        classpath 'com.craigburke.gradle:client-dependencies:1.4.0'
+        classpath 'de.topobyte:gradle-generate-favicons-plugin:0.0.1'
     }
 }
 
