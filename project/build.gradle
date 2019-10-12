@@ -146,4 +146,7 @@ project(':openmetromaps-dynamic') {
             include "**/*"
         }
     }
+
+    tasks.eclipse.dependsOn clientInstall
+    tasks.eclipse.dependsOn generateFavicons
 }
