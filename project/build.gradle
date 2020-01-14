@@ -5,7 +5,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.craigburke.gradle:client-dependencies:1.4.0'
-        classpath 'de.topobyte:gradle-generate-favicons-plugin:0.0.1'
+        classpath 'de.topobyte:gradle-generate-favicons-plugin:0.0.2'
     }
 }
 
