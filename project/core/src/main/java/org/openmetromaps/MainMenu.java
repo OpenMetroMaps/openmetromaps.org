@@ -5,9 +5,9 @@ import static de.topobyte.jsoup.HTML.a;
 import org.jsoup.nodes.Element;
 
 import de.topobyte.jsoup.HTML;
+import de.topobyte.jsoup.bootstrap3.components.Menu;
 import de.topobyte.jsoup.components.A;
 import de.topobyte.jsoup.components.Img;
-import de.topobyte.jsoup.components.bootstrap3.Menu;
 import de.topobyte.pagegen.core.LinkResolver;
 import de.topobyte.webpaths.WebPaths;
 

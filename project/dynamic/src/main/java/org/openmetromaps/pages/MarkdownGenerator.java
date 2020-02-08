@@ -3,8 +3,8 @@ package org.openmetromaps.pages;
 import java.io.IOException;
 
 import org.openmetromaps.BaseGenerator;
-import org.openmetromaps.Markdown;
 
+import de.topobyte.jsoup.Markdown;
 import de.topobyte.pagegen.core.Context;
 import de.topobyte.webpaths.WebPath;
 

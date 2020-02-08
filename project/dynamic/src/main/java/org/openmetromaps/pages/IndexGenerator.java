@@ -3,9 +3,9 @@ package org.openmetromaps.pages;
 import java.io.IOException;
 
 import org.openmetromaps.BaseGenerator;
-import org.openmetromaps.Markdown;
 
 import de.topobyte.jsoup.HTML;
+import de.topobyte.jsoup.Markdown;
 import de.topobyte.jsoup.components.Div;
 import de.topobyte.jsoup.components.Img;
 import de.topobyte.jsoup.nodes.Element;
