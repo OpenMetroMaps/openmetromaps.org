@@ -22,7 +22,6 @@ public class MainMenu extends Menu
 
 		Img image = HTML.img(resolver.getLink(WebPaths.get("images/icon.svg")));
 		image.attr("width", "50px");
-		image.addClass("img-responsive");
 		image.attr("style", "padding:5px");
 		brandIcon.ap(image);
 
