@@ -24,5 +24,5 @@ maps. The current draft is a relatively simple XML-based document.
 It has not been formally specified yet, but there are existing files and
 running code that reads and writes data in such a format.
 Have a look at this example document from the main repository:
-[[berlin.xml|@github(OpenMetroMaps, OpenMetroMaps,
-/blob/master/java/test-data/src/main/resources/berlin.xml)]]
+[[berlin.omm|@github(OpenMetroMaps, OpenMetroMaps,
+/blob/master/java/test-data/src/main/resources/berlin.omm)]]
