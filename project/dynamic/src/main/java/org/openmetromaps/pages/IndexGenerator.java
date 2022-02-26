@@ -48,7 +48,7 @@ public class IndexGenerator extends BaseGenerator
 	{
 		content.ac(HTML.h1("Funding"));
 
-		content.appendText("This project is currently funded by the");
+		content.appendText("This project is has been funded by the");
 		content.ac(
 				HTML.a("https://okfn.de", "Open Knowledge Foundation Germany"));
 		content.appendText(" via the");
@@ -56,7 +56,7 @@ public class IndexGenerator extends BaseGenerator
 		content.appendText(", which is backed by the");
 		content.ac(HTML.a("https://www.bmbf.de",
 				"German Federal Ministry of Education and Resesarch"));
-		content.appendText(".");
+		content.appendText(" from September 2017 until March 2018.");
 
 		Div div = content.ac(HTML.div());
 		Img img = div.ac(HTML.img("images/BMBF_en.jpg"));
