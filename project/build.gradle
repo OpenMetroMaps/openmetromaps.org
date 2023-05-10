@@ -1,16 +1,16 @@
 buildscript {
     repositories {
         maven { url 'https://plugins.gradle.org/m2/' }
-        maven { url 'http://mvn.topobyte.de' }
+        maven { url 'https://mvn.topobyte.de' }
     }
     dependencies {
-        classpath 'com.craigburke.gradle:client-dependencies:1.4.0'
+        classpath 'com.magnetichq:client-dependencies-g7:2.0.0'
         classpath 'de.topobyte:gradle-generate-favicons-plugin:0.0.2'
     }
 }
 
 wrapper {
-    gradleVersion = '5.2.1'
+    gradleVersion = '7.6.1'
 }
 
 allprojects {
@@ -19,25 +19,23 @@ allprojects {
 }
 
 subprojects {
-    apply plugin: 'maven'
-
     repositories {
         maven {
-            url 'http://mvn.topobyte.de'
+            url 'https://mvn.topobyte.de'
         }
         mavenCentral()
     }
 }
 
 project(':openmetromaps-core') {
-    apply plugin: 'java'
+    apply plugin: 'java-library'
     apply plugin: 'eclipse-wtp'
 }
 
 project(':openmetromaps-dynamic') {
     apply plugin: 'war'
     apply plugin: 'eclipse-wtp'
-    apply plugin: 'com.craigburke.client-dependencies'
+    apply plugin: 'com.magnetichq.client-dependencies'
     apply plugin: 'de.topobyte.generate-favicons-gradle-plugin'
 }
 
@@ -48,32 +46,32 @@ subprojects {
 
 project(':openmetromaps-core') {
     dependencies {
-        compile 'de.topobyte:jsoup-elements:0.1.3'
-        compile 'de.topobyte:jsoup-bootstrap:0.3.3'
-        compile 'de.topobyte:jsoup-utils:0.1.4'
-        compile 'de.topobyte:webpaths-core:0.0.3'
-        compile 'de.topobyte:pagegen-core:0.1.0'
-        compile 'de.topobyte:pagegen-bootstrap:0.1.1'
-        compile 'commons-io:commons-io:2.4'
+        api 'de.topobyte:jsoup-elements:0.1.3'
+        api 'de.topobyte:jsoup-bootstrap:0.3.3'
+        api 'de.topobyte:jsoup-utils:0.1.4'
+        api 'de.topobyte:webpaths-core:0.0.3'
+        api 'de.topobyte:pagegen-core:0.1.0'
+        api 'de.topobyte:pagegen-bootstrap:0.1.1'
+        api 'commons-io:commons-io:2.4'
 
-        testCompile 'junit:junit:4.12'
+        testImplementation 'junit:junit:4.12'
     }
 }
 
 project(':openmetromaps-dynamic') {
     dependencies {
-        compile project(':openmetromaps-core')
+        implementation project(':openmetromaps-core')
 
-        compile 'de.topobyte:system-utils:0.0.1'
-        compile 'de.topobyte:jsoup-servlet:0.1.0'
-        compile 'de.topobyte:jsoup-utils:0.1.4'
-        compile 'de.topobyte:jsoup-flexmark:0.1.0'
+        implementation 'de.topobyte:system-utils:0.0.1'
+        implementation 'de.topobyte:jsoup-servlet:0.1.0'
+        implementation 'de.topobyte:jsoup-utils:0.1.4'
+        implementation 'de.topobyte:jsoup-flexmark:0.1.0'
 
         providedCompile 'javax.servlet:javax.servlet-api:3.+'
         providedCompile 'javax.servlet.jsp:jsp-api:2.1'
 
-        compile 'org.slf4j:slf4j-api:1.7.20'
-        compile 'ch.qos.logback:logback-classic:1.2.3'
+        implementation 'org.slf4j:slf4j-api:1.7.20'
+        implementation 'ch.qos.logback:logback-classic:1.2.3'
     }
 }
 
@@ -134,11 +132,11 @@ project(':openmetromaps-dynamic') {
     [war].each { task ->
         task.dependsOn clientInstall
         task.dependsOn generateFavicons
-        task.from ('logging/' + task.classifier) {
+        task.from ('logging/' + task.archiveClassifier.get()) {
             into('WEB-INF/classes')
             include "**/*"
         }
-        task.from ('config/' + task.classifier) {
+        task.from ('config/' + task.archiveClassifier.get()) {
             into('WEB-INF/classes')
             include "**/*"
         }
