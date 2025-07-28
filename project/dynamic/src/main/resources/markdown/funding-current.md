@@ -1,0 +1,1 @@
+You can support the project by becoming a sponsor on [Liberapay](https://liberapay.com/OpenMetroMaps/)!

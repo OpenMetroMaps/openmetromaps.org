@@ -45,21 +45,19 @@ public class IndexGenerator extends BaseGenerator
 		footer();
 	}
 
-	private void funding()
+	private void funding() throws IOException
 	{
 		CacheBuster cacheBuster = Website.INSTANCE.getCacheBuster();
 
 		content.ac(HTML.h1("Funding"));
 
-		content.appendText("This project has been funded by the ");
-		content.ac(
-				HTML.a("https://okfn.de", "Open Knowledge Foundation Germany"));
-		content.appendText(" via the ");
-		content.ac(HTML.a("https://prototypefund.de", "Prototype Fund"));
-		content.appendText(", which is backed by the ");
-		content.ac(HTML.a("https://www.bmbf.de",
-				"German Federal Ministry of Education and Resesarch"));
-		content.appendText(" from September 2017 until March 2018.");
+		content.ac(HTML.h2("Current Funding"));
+
+		Markdown.renderResource(content, "markdown/funding-current.md");
+
+		content.ac(HTML.h2("Past Funding"));
+
+		Markdown.renderResource(content, "markdown/funding-prototype-fund.md");
 
 		Div div = content.ac(HTML.div());
 		Img img = div.ac(HTML.img(cacheBuster.resolve("images/BMBF_en.jpg")));
