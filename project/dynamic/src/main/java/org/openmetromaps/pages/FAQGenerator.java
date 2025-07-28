@@ -10,16 +10,15 @@ import de.topobyte.jsoup.components.Div;
 import de.topobyte.jsoup.components.List;
 import de.topobyte.jsoup.components.ListItem;
 import de.topobyte.jsoup.components.OrderedList;
-import de.topobyte.jsoup.nodes.Element;
-import de.topobyte.pagegen.core.Context;
+import de.topobyte.jsoup.components.Span;
 import de.topobyte.webpaths.WebPath;
 
 public class FAQGenerator extends BaseGenerator
 {
 
-	public FAQGenerator(Context context, WebPath path)
+	public FAQGenerator(WebPath path)
 	{
-		super(context, path);
+		super(path);
 	}
 
 	@Override
@@ -71,7 +70,7 @@ public class FAQGenerator extends BaseGenerator
 		divAnswer.appendText(answer);
 	}
 
-	private void add(List list, String question, Element answer)
+	private void add(List list, String question, Span answer)
 	{
 		ListItem item = list.addItem();
 		Div divQuestion = item.ac(question());

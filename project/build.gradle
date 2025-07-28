@@ -5,8 +5,13 @@ buildscript {
     }
     dependencies {
         classpath 'com.magnetichq:client-dependencies-g7:2.0.0'
-        classpath 'de.topobyte:gradle-generate-favicons-plugin:0.0.2'
+        classpath 'de.topobyte:gradle-generate-favicons-plugin:0.0.3'
+        classpath 'de.topobyte:gradle-cache-busting-plugin:0.0.5'
     }
+}
+
+plugins {
+    id 'io.franzbecker.gradle-lombok' version '4.0.0' apply false
 }
 
 wrapper {
@@ -30,28 +35,36 @@ subprojects {
 project(':openmetromaps-core') {
     apply plugin: 'java-library'
     apply plugin: 'eclipse-wtp'
+    apply plugin: 'io.franzbecker.gradle-lombok'
 }
 
 project(':openmetromaps-dynamic') {
     apply plugin: 'war'
     apply plugin: 'eclipse-wtp'
+    apply plugin: 'io.franzbecker.gradle-lombok'
     apply plugin: 'com.magnetichq.client-dependencies'
     apply plugin: 'de.topobyte.generate-favicons-gradle-plugin'
+    apply plugin: 'de.topobyte.cache-busting-gradle-plugin'
 }
 
 subprojects {
+    lombok {
+        version = '1.18.24'
+        sha256 = ''
+    }
+
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
 }
 
 project(':openmetromaps-core') {
     dependencies {
-        api 'de.topobyte:jsoup-elements:0.1.3'
-        api 'de.topobyte:jsoup-bootstrap:0.3.3'
-        api 'de.topobyte:jsoup-utils:0.1.4'
-        api 'de.topobyte:webpaths-core:0.0.3'
-        api 'de.topobyte:pagegen-core:0.1.0'
-        api 'de.topobyte:pagegen-bootstrap:0.1.1'
+        api 'de.topobyte:jsoup-elements:0.2.1'
+        api 'de.topobyte:jsoup-bootstrap4:1.4.0'
+        api 'de.topobyte:jsoup-utils:0.2.1'
+        api 'de.topobyte:webpaths-core:0.0.4'
+        api 'de.topobyte:pagegen-core:1.2.2'
+        api 'de.topobyte:pagegen-bootstrap:1.3.0'
         api 'commons-io:commons-io:2.4'
 
         testImplementation 'junit:junit:4.12'
@@ -63,9 +76,11 @@ project(':openmetromaps-dynamic') {
         implementation project(':openmetromaps-core')
 
         implementation 'de.topobyte:system-utils:0.0.1'
-        implementation 'de.topobyte:jsoup-servlet:0.1.0'
-        implementation 'de.topobyte:jsoup-utils:0.1.4'
-        implementation 'de.topobyte:jsoup-flexmark:0.1.0'
+        implementation 'de.topobyte:jsoup-servlet:0.2.0'
+        implementation 'de.topobyte:jsoup-utils:0.2.1'
+        implementation 'de.topobyte:jsoup-flexmark:0.1.1'
+        implementation 'de.topobyte:servlet-utils:0.0.2'
+        implementation 'de.topobyte:jsoup-feather:1.2.0'
 
         providedCompile 'javax.servlet:javax.servlet-api:3.+'
         providedCompile 'javax.servlet.jsp:jsp-api:2.1'
@@ -88,9 +103,8 @@ project(':openmetromaps-dynamic') {
                 contextPath = '/'
                 deployName = 'openmetromaps'
                 resource deployPath: '/', sourcePath: 'src/main/webapp'
-                resource deployPath: '/', sourcePath: 'res'
-                resource deployPath: '/client', sourcePath: 'src/assets/vendor'
-                resource deployPath: '/', sourcePath: 'build/favicons'
+                resource deployPath: '/', sourcePath: 'build/static'
+                resource deployPath: '/', sourcePath: 'res-nohash'
             }
         }
     }
@@ -109,10 +123,11 @@ project(':openmetromaps-dynamic') {
     }
 
     clientDependencies {
+        installDir = 'src/assets/vendor/client'
         copyExcludes = ['**/*.map', '**/Gruntfile.js', 'gulpfile.js', 'source/**']
         yarn {
-            'jquery'('2.2.2')
-            'bootstrap'('3.3.6')
+            'jquery'('3.5.1')
+            'bootstrap'('4.5.0')
         }
     }
 
@@ -144,4 +159,13 @@ project(':openmetromaps-dynamic') {
 
     tasks.eclipse.dependsOn clientInstall
     tasks.eclipse.dependsOn generateFavicons
+
+    tasks.generateStaticFiles.dependsOn generateFavicons
+
+    cacheBusting {
+        input = []
+        input += 'res'
+        input += 'build/favicons'
+        input += 'src/assets/vendor'
+    }
 }

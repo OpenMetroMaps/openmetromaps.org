@@ -1,6 +1,7 @@
 package org.openmetromaps;
 
 import java.io.IOException;
+import java.net.URLDecoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,10 +17,11 @@ import org.slf4j.LoggerFactory;
 
 import de.topobyte.jsoup.ContentGeneratable;
 import de.topobyte.jsoup.JsoupServletUtil;
+import de.topobyte.webgun.exceptions.WebStatusException;
 import de.topobyte.webpaths.WebPath;
 import de.topobyte.webpaths.WebPaths;
 
-@WebServlet("/pages/*")
+@WebServlet("/*")
 public class IndexServlet extends HttpServlet
 {
 
@@ -27,55 +29,71 @@ public class IndexServlet extends HttpServlet
 
 	private static final long serialVersionUID = 1L;
 
+	private interface Responder<T>
+	{
+
+		public void respond(int code, WebPath output,
+				HttpServletResponse response, T data) throws IOException;
+
+	}
+
+	private <T> void tryGenerate(HttpServletResponse response, WebPath path,
+			ContentGeneratable generator, Responder<T> responder, T data)
+			throws IOException
+	{
+		if (generator != null) {
+			try {
+				JsoupServletUtil.respond(response, generator);
+			} catch (WebStatusException e) {
+				responder.respond(e.getCode(), path, response, data);
+			}
+		} else {
+			responder.respond(404, path, response, data);
+		}
+
+	}
+
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException
 	{
-		// Remove "/pages" prefix
-		String uri = request.getRequestURI().substring(6);
+		String uri = URLDecoder.decode(request.getRequestURI(), "UTF-8");
 		WebPath path = WebPaths.get(uri);
 		int nc = path.getNameCount();
 
 		logger.info("URI: " + uri);
 		logger.info("Path: " + path);
 
-		WebContext context = new WebContext();
-
 		ContentGeneratable generator = null;
 		if (nc < 1) {
-			generator = new IndexGenerator(context, path);
+			generator = new IndexGenerator(path);
 		} else if (nc == 1 && !path.isDir()) {
 			String first = path.getName(0);
 			if (first.equals("demo")) {
-				generator = new MarkdownGenerator(context, path,
-						"markdown/demo.md");
+				generator = new MarkdownGenerator(path, "markdown/demo.md");
 			} else if (first.equals("mission")) {
-				generator = new MarkdownGenerator(context, path,
-						"markdown/mission.md");
+				generator = new MarkdownGenerator(path, "markdown/mission.md");
 			} else if (first.equals("user-guide")) {
-				generator = new MarkdownGenerator(context, path,
+				generator = new MarkdownGenerator(path,
 						"markdown/user-guide.md");
 			} else if (first.equals("developer-guide")) {
-				generator = new MarkdownGenerator(context, path,
+				generator = new MarkdownGenerator(path,
 						"markdown/developer-guide.md");
 			} else if (first.equals("mailing-list")) {
-				generator = new MarkdownGenerator(context, path,
+				generator = new MarkdownGenerator(path,
 						"markdown/mailing-list.md");
 			} else if (first.equals("imprint")) {
-				generator = new MarkdownGenerator(context, path,
+				generator = new MarkdownGenerator(path,
 						"markdown/impressum.md");
 			} else if (first.equals("privacy-policy")) {
-				generator = new MarkdownGenerator(context, path,
+				generator = new MarkdownGenerator(path,
 						"markdown/privacy-policy.md");
 			} else if (first.equals("faq")) {
-				generator = new FAQGenerator(context, path);
+				generator = new FAQGenerator(path);
 			}
 		}
 
-		if (generator != null) {
-			JsoupServletUtil.respond(response, generator);
-		} else {
-			ServletUtil.respond404(context, path, response);
-		}
+		tryGenerate(response, path, generator, ServletUtil::respond,
+				(Void) null);
 	}
 }

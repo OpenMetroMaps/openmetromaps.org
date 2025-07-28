@@ -2,7 +2,9 @@ package org.openmetromaps;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -17,21 +19,26 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.topobyte.cachebusting.CacheBusting;
+import de.topobyte.servlet.utils.Servlets;
+
 @WebFilter("/*")
 public class RootFilter implements Filter
 {
 
 	final static Logger logger = LoggerFactory.getLogger(RootFilter.class);
 
-	private static List<String> statics = new ArrayList<>();
+	private static Set<String> staticFiles = new HashSet<>();
+	private static List<String> staticPatterns = new ArrayList<>();
 
 	static {
-		statics.add("/client/");
-		statics.add("/images/");
-		statics.add("/favicon.ico");
-		statics.add("/custom.css");
-		statics.add("/sticky-footer-navbar.css");
-		statics.add("/googleb4d9f938be253b7a.html");
+		staticPatterns.add("/client/");
+		staticPatterns.add("/images/");
+		for (String entry : CacheBusting.getValues()) {
+			staticFiles.add("/" + entry);
+		}
+		staticFiles.add("/sticky-footer-navbar.css");
+		staticFiles.add("/googleb4d9f938be253b7a.html");
 	}
 
 	@Override
@@ -49,9 +56,15 @@ public class RootFilter implements Filter
 
 			String path = hsr.getRequestURI();
 
-			for (String staticPrefix : statics) {
+			if (staticFiles.contains(path)) {
+				HttpServletResponse r = (HttpServletResponse) response;
+				r.setHeader("Cache-Control", "public, max-age=31536000");
+				Servlets.forwardToDefault(request, response);
+				return;
+			}
+			for (String staticPrefix : staticPatterns) {
 				if (path.startsWith(staticPrefix)) {
-					chain.doFilter(request, response);
+					Servlets.forwardToDefault(request, response);
 					return;
 				}
 			}
@@ -63,9 +76,7 @@ public class RootFilter implements Filter
 				return;
 			}
 
-			request.getRequestDispatcher("/pages" + path).forward(request,
-					response);
-			return;
+			request.setCharacterEncoding("UTF-8");
 		}
 		chain.doFilter(request, response);
 	}

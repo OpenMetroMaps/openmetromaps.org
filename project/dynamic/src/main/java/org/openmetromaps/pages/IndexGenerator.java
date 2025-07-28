@@ -3,21 +3,22 @@ package org.openmetromaps.pages;
 import java.io.IOException;
 
 import org.openmetromaps.BaseGenerator;
+import org.openmetromaps.Website;
 
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.Markdown;
 import de.topobyte.jsoup.components.Div;
 import de.topobyte.jsoup.components.Img;
-import de.topobyte.jsoup.nodes.Element;
-import de.topobyte.pagegen.core.Context;
+import de.topobyte.jsoup.components.Span;
+import de.topobyte.webgun.util.CacheBuster;
 import de.topobyte.webpaths.WebPath;
 
 public class IndexGenerator extends BaseGenerator
 {
 
-	public IndexGenerator(Context context, WebPath path)
+	public IndexGenerator(WebPath path)
 	{
-		super(context, path);
+		super(path);
 	}
 
 	@Override
@@ -27,12 +28,12 @@ public class IndexGenerator extends BaseGenerator
 
 		menu();
 
-		Element headline = content.ac(HTML.span());
+		Span headline = content.ac(HTML.span());
 		headline.appendText("Open Metro Maps");
 		headline.attr("style",
 				"display:block; font-family: 'Sans', serif; font-weight: normal; font-size: 36pt; text-align: center");
 
-		Element slogan = content.ac(HTML.span());
+		Span slogan = content.ac(HTML.span());
 		slogan.appendText("Free maps for rapid transit networks");
 		slogan.attr("style",
 				"display:block; font-weight: normal; text-align: center");
@@ -46,6 +47,8 @@ public class IndexGenerator extends BaseGenerator
 
 	private void funding()
 	{
+		CacheBuster cacheBuster = Website.INSTANCE.getCacheBuster();
+
 		content.ac(HTML.h1("Funding"));
 
 		content.appendText("This project has been funded by the");
@@ -59,7 +62,7 @@ public class IndexGenerator extends BaseGenerator
 		content.appendText(" from September 2017 until March 2018.");
 
 		Div div = content.ac(HTML.div());
-		Img img = div.ac(HTML.img("images/BMBF_en.jpg"));
+		Img img = div.ac(HTML.img(cacheBuster.resolve("images/BMBF_en.jpg")));
 		img.attr("style", "height:16em;width:auto");
 	}
 

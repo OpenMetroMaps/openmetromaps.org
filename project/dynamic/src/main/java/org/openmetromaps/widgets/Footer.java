@@ -1,17 +1,21 @@
-package org.openmetromaps;
+package org.openmetromaps.widgets;
 
 import static de.topobyte.jsoup.HTML.a;
 import static de.topobyte.jsoup.HTML.p;
-import static de.topobyte.jsoup.HTML.span;
+
+import org.openmetromaps.PathHelper;
 
 import de.topobyte.jsoup.HTML;
-import de.topobyte.jsoup.bootstrap3.Bootstrap;
+import de.topobyte.jsoup.bootstrap4.Bootstrap;
+import de.topobyte.jsoup.bootstrap4.components.Container;
 import de.topobyte.jsoup.components.A;
+import de.topobyte.jsoup.components.P;
 import de.topobyte.jsoup.components.UnorderedList;
+import de.topobyte.jsoup.feather.Feather;
 import de.topobyte.jsoup.nodes.Element;
 import de.topobyte.pagegen.core.LinkResolver;
 
-public class Footer extends Element
+public class Footer extends Element<Footer>
 {
 
 	public Footer(LinkResolver resolver)
@@ -19,7 +23,7 @@ public class Footer extends Element
 		super("footer");
 		attr("class", "footer");
 
-		Element container = ac(Bootstrap.container());
+		Container container = ac(Bootstrap.container());
 
 		UnorderedList links = container.ac(HTML.ul());
 
@@ -31,12 +35,11 @@ public class Footer extends Element
 		A linkPrivacy = a(privacyLink, "Privacy policy");
 		links.addItem(linkPrivacy);
 
-		Element p = container.ac(p().addClass("text-muted"));
+		P p = container.ac(p().addClass("text-muted"));
 
-		Element heart = span().addClass("glyphicon glyphicon-heart");
-		p.appendText("Made with ");
-		p.appendChild(heart);
-		p.appendText(" in Berlin");
+		p.at("Made with ");
+		p.ac(Feather.heart("1em"));
+		p.at(" in Berlin-Brandenburg");
 	}
 
 }

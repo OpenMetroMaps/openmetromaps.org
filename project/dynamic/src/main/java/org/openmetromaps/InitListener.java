@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.LoggerContext;
+import de.topobyte.cachebusting.CacheBusting;
 
 @WebListener
 public class InitListener implements ServletContextListener
@@ -23,6 +24,11 @@ public class InitListener implements ServletContextListener
 	public void contextInitialized(ServletContextEvent sce)
 	{
 		logger.info("context initialized");
+
+		logger.info("setting up website factories");
+		Website.INSTANCE.setCacheBuster(filename -> {
+			return "/" + CacheBusting.resolve(filename);
+		});
 
 		InputStream input = Thread.currentThread().getContextClassLoader()
 				.getResourceAsStream("config.properties");
