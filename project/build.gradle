@@ -132,11 +132,8 @@ project(':openmetromaps-dynamic') {
     }
 
     def commonWarDefs = {
-        from 'res'
-        from ('src/assets/vendor') {
-            into 'client'
-        }
-        from 'build/favicons'
+        from 'build/static'
+        from 'res-nohash'
     }
 
     war {
