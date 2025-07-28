@@ -51,12 +51,12 @@ public class IndexGenerator extends BaseGenerator
 
 		content.ac(HTML.h1("Funding"));
 
-		content.appendText("This project has been funded by the");
+		content.appendText("This project has been funded by the ");
 		content.ac(
 				HTML.a("https://okfn.de", "Open Knowledge Foundation Germany"));
-		content.appendText(" via the");
+		content.appendText(" via the ");
 		content.ac(HTML.a("https://prototypefund.de", "Prototype Fund"));
-		content.appendText(", which is backed by the");
+		content.appendText(", which is backed by the ");
 		content.ac(HTML.a("https://www.bmbf.de",
 				"German Federal Ministry of Education and Resesarch"));
 		content.appendText(" from September 2017 until March 2018.");
