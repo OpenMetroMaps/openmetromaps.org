@@ -16,7 +16,7 @@ many things are not easy to use and fully functional yet. At this
 point, some expertise in programming is required to get involved with
 the project. To get an impression of what we're getting at, have a look
 at the [[Demo page|demo]]. You can also follow us on
-[Twitter](https://twitter.com/openmetromaps) or have a
+[X](https://x.com/openmetromaps) or have a
 look at the contributions we submitted to the OpenStreetMap with
 [our OSM account](https://www.openstreetmap.org/user/OpenMetroMaps).
 
