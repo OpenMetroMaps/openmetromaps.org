@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.openmetromaps.pages.BerlinGeographicFrameGenerator;
+import org.openmetromaps.pages.BerlinGeographicGenerator;
 import org.openmetromaps.pages.FAQGenerator;
 import org.openmetromaps.pages.IndexGenerator;
 import org.openmetromaps.pages.MarkdownGenerator;
@@ -90,6 +92,10 @@ public class IndexServlet extends HttpServlet
 						"markdown/privacy-policy.md");
 			} else if (first.equals("faq")) {
 				generator = new FAQGenerator(path);
+			} else if (first.equals("berlin")) {
+				generator = new BerlinGeographicGenerator(path);
+			} else if (first.equals("berlin-frame")) {
+				generator = new BerlinGeographicFrameGenerator(path);
 			}
 		}
 
