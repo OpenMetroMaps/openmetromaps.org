@@ -92,17 +92,26 @@ public class IndexServlet extends HttpServlet
 			} else if (first.equals("faq")) {
 				generator = new FAQGenerator(path);
 			}
-		} else if (nc == 2 && !path.isDir()) {
+		} else if (nc == 3 && !path.isDir()) {
 			String first = path.getName(0);
 			String second = path.getName(1);
-			if (first.equals("berlin") && second.equals("geographic")) {
-				generator = new MapGenerator(path, first, second);
-			} else if (first.equals("berlin") && second.equals("schematic")) {
-				generator = new MapGenerator(path, first, second);
-			} else if (first.equals("vienna") && second.equals("geographic")) {
-				generator = new MapGenerator(path, first, second);
-			} else if (first.equals("vienna") && second.equals("schematic")) {
-				generator = new MapGenerator(path, first, second);
+			String third = path.getName(2);
+			if (first.equals("demo")) {
+				if (second.equals("berlin") && third.equals("geographic")) {
+					generator = new MapGenerator(path, second, third);
+				} else if (second.equals("berlin")
+						&& third.equals("schematic")) {
+					generator = new MapGenerator(path, second, third);
+				} else if (second.equals("berlin")
+						&& third.equals("nicknames")) {
+					generator = new MapGenerator(path, second, third);
+				} else if (second.equals("vienna")
+						&& third.equals("geographic")) {
+					generator = new MapGenerator(path, second, third);
+				} else if (second.equals("vienna")
+						&& third.equals("schematic")) {
+					generator = new MapGenerator(path, second, third);
+				}
 			}
 		}
 

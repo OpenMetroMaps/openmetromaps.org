@@ -7,6 +7,7 @@ rm -rf res-nohash/client/demo/
 mkdir -p res-nohash/client/berlin
 cp ../../../OpenMetroMapsData/berlin/geographic.omm res-nohash/client/berlin/
 cp ../../../OpenMetroMapsData/berlin/schematic.omm res-nohash/client/berlin/
+cp ../../../OpenMetroMapsData/berlin/nicknames.omm res-nohash/client/berlin/
 
 mkdir -p res-nohash/client/vienna
 cp ../../../OpenMetroMapsData/vienna/geographic.omm res-nohash/client/vienna/
