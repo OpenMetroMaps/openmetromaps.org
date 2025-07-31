@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.openmetromaps.BaseGenerator;
 import org.openmetromaps.widgets.Map;
 
+import de.topobyte.cachebusting.CacheBusting;
 import de.topobyte.webpaths.WebPath;
 
 public class MapGenerator extends BaseGenerator
@@ -29,8 +30,8 @@ public class MapGenerator extends BaseGenerator
 
 		Map.setupHead(builder);
 
-		Map.widget(content,
-				String.format("/client/%s/%s.omm", region, version));
+		String mapfile = String.format("client/%s/%s.omm", region, version);
+		Map.widget(content, "/" + CacheBusting.resolve(mapfile));
 
 		footer();
 	}
