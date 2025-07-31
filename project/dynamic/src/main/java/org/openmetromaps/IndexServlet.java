@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.openmetromaps.pages.FAQGenerator;
 import org.openmetromaps.pages.IndexGenerator;
+import org.openmetromaps.pages.MapGenerator;
 import org.openmetromaps.pages.MarkdownGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -90,6 +91,18 @@ public class IndexServlet extends HttpServlet
 						"markdown/privacy-policy.md");
 			} else if (first.equals("faq")) {
 				generator = new FAQGenerator(path);
+			}
+		} else if (nc == 2 && !path.isDir()) {
+			String first = path.getName(0);
+			String second = path.getName(1);
+			if (first.equals("berlin") && second.equals("geographic")) {
+				generator = new MapGenerator(path, first, second);
+			} else if (first.equals("berlin") && second.equals("schematic")) {
+				generator = new MapGenerator(path, first, second);
+			} else if (first.equals("vienna") && second.equals("geographic")) {
+				generator = new MapGenerator(path, first, second);
+			} else if (first.equals("vienna") && second.equals("schematic")) {
+				generator = new MapGenerator(path, first, second);
 			}
 		}
 

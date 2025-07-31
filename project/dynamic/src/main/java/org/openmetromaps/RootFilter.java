@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -29,11 +30,13 @@ public class RootFilter implements Filter
 	final static Logger logger = LoggerFactory.getLogger(RootFilter.class);
 
 	private static Set<String> staticFiles = new HashSet<>();
+	private static List<Pattern> staticPatternsNoCache = new ArrayList<>();
 	private static List<String> staticPatterns = new ArrayList<>();
 
 	static {
 		staticPatterns.add("/client/");
 		staticPatterns.add("/images/");
+		staticPatternsNoCache.add(Pattern.compile(".*\\.cache.js"));
 		for (String entry : CacheBusting.getValues()) {
 			staticFiles.add("/" + entry);
 		}
@@ -61,6 +64,13 @@ public class RootFilter implements Filter
 				r.setHeader("Cache-Control", "public, max-age=31536000");
 				Servlets.forwardToDefault(request, response);
 				return;
+			}
+			for (Pattern pattern : staticPatternsNoCache) {
+				if (pattern.matcher(path).matches()) {
+					HttpServletResponse r = (HttpServletResponse) response;
+					r.setHeader("Cache-Control", "public, max-age=31536000");
+					Servlets.forwardToDefault(request, response);
+				}
 			}
 			for (String staticPrefix : staticPatterns) {
 				if (path.startsWith(staticPrefix)) {
