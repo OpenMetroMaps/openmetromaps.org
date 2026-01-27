@@ -157,6 +157,7 @@ project(':openmetromaps-dynamic') {
     tasks.eclipse.dependsOn clientInstall
     tasks.eclipse.dependsOn generateFavicons
 
+    tasks.generateStaticFiles.dependsOn clientInstall
     tasks.generateStaticFiles.dependsOn generateFavicons
 
     cacheBusting {
