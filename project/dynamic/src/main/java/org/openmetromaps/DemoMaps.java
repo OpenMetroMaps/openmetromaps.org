@@ -16,6 +16,8 @@ public class DemoMaps
 		register("berlin", "nicknames");
 		register("vienna", "geographic");
 		register("vienna", "schematic");
+		register("stuttgart", "sbahn-geographic");
+		register("stuttgart", "sbahn-schematic");
 	}
 
 	private static void register(String city, String variant)

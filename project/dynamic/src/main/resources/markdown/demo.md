@@ -11,6 +11,8 @@ Here are links to instances of the
 * [Berlin, nick names](/demo/berlin/nicknames)
 * [Vienna, schematic](/demo/vienna/schematic)
 * [Vienna, geographic](/demo/vienna/geographic)
+* [Stuttgart S-Bahn, schematic](/demo/stuttgart/sbahn-schematic)
+* [Stuttgart S-Bahn, geographic](/demo/stuttgart/sbahn-geographic)
 
 ## Map Editor
 This is a screenshot of the
