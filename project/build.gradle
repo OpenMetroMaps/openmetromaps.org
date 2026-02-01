@@ -12,10 +12,11 @@ buildscript {
 
 plugins {
     id 'io.franzbecker.gradle-lombok' version '4.0.0' apply false
+    id 'com.diffplug.spotless' version '8.2.1' apply false
 }
 
 wrapper {
-    gradleVersion = '7.6.1'
+    gradleVersion = '8.3'
 }
 
 allprojects {
@@ -48,13 +49,29 @@ project(':openmetromaps-dynamic') {
 }
 
 subprojects {
+    apply plugin: 'com.diffplug.spotless'
+
     lombok {
         version = '1.18.24'
         sha256 = ''
     }
 
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    java {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    spotless {
+        java {
+            eclipse('4.34').configFile(rootProject.file("formatter.xml"))
+            importOrderFile(rootProject.file("importorder.txt"))
+            removeUnusedImports()
+            target project.fileTree(project.projectDir) {
+                include '**/*.java'
+                exclude 'build/**/*.*'
+            }
+        }
+    }
 }
 
 project(':openmetromaps-core') {
@@ -137,7 +154,7 @@ project(':openmetromaps-dynamic') {
     }
 
     war {
-        classifier = 'production'
+        archiveClassifier = 'production'
         configure commonWarDefs
     }
 
