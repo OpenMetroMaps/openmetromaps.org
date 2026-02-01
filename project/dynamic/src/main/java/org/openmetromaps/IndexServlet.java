@@ -96,22 +96,8 @@ public class IndexServlet extends HttpServlet
 			String first = path.getName(0);
 			String second = path.getName(1);
 			String third = path.getName(2);
-			if (first.equals("demo")) {
-				if (second.equals("berlin") && third.equals("geographic")) {
-					generator = new MapGenerator(path, second, third);
-				} else if (second.equals("berlin")
-						&& third.equals("schematic")) {
-					generator = new MapGenerator(path, second, third);
-				} else if (second.equals("berlin")
-						&& third.equals("nicknames")) {
-					generator = new MapGenerator(path, second, third);
-				} else if (second.equals("vienna")
-						&& third.equals("geographic")) {
-					generator = new MapGenerator(path, second, third);
-				} else if (second.equals("vienna")
-						&& third.equals("schematic")) {
-					generator = new MapGenerator(path, second, third);
-				}
+			if (first.equals("demo") && DemoMaps.isValid(second, third)) {
+				generator = new MapGenerator(path, second, third);
 			}
 		}
 
