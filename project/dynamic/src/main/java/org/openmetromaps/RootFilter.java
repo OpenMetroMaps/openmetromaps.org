@@ -30,13 +30,13 @@ public class RootFilter implements Filter
 	final static Logger logger = LoggerFactory.getLogger(RootFilter.class);
 
 	private static Set<String> staticFiles = new HashSet<>();
-	private static List<Pattern> staticPatternsNoCache = new ArrayList<>();
+	private static List<Pattern> staticPatternsCacheForever = new ArrayList<>();
 	private static List<String> staticPatterns = new ArrayList<>();
 
 	static {
 		staticPatterns.add("/client/");
 		staticPatterns.add("/images/");
-		staticPatternsNoCache.add(Pattern.compile(".*\\.cache.js"));
+		staticPatternsCacheForever.add(Pattern.compile(".*\\.cache.js"));
 		for (String entry : CacheBusting.getValues()) {
 			staticFiles.add("/" + entry);
 		}
@@ -65,11 +65,12 @@ public class RootFilter implements Filter
 				Servlets.forwardToDefault(request, response);
 				return;
 			}
-			for (Pattern pattern : staticPatternsNoCache) {
+			for (Pattern pattern : staticPatternsCacheForever) {
 				if (pattern.matcher(path).matches()) {
 					HttpServletResponse r = (HttpServletResponse) response;
 					r.setHeader("Cache-Control", "public, max-age=31536000");
 					Servlets.forwardToDefault(request, response);
+					return;
 				}
 			}
 			for (String staticPrefix : staticPatterns) {
