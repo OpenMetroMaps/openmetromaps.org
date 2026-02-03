@@ -20,4 +20,4 @@ cp ../../../OpenMetroMapsData/stuttgart/sbahn-schematic.omm res/client/stuttgart
 mkdir -p res-nohash/client/demo
 cp -a ../../OpenMetroMaps/gwt/build/gwt/war/demo/*.cache.js res-nohash/client/demo/
 cp -a ../../OpenMetroMaps/gwt/build/gwt/war/demo/clear.cache.gif res-nohash/client/demo/
-cp -a ../../OpenMetroMaps/gwt/build/gwt/war/demo/demo.nocache.js res-nohash/client/demo/
+cp -a ../../OpenMetroMaps/gwt/build/gwt/war/demo/demo.nocache.js res/client/demo/

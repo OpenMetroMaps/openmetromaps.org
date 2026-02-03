@@ -6,6 +6,7 @@ import de.topobyte.cachebusting.CacheBusting;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.HtmlBuilder;
 import de.topobyte.jsoup.components.Div;
+import de.topobyte.jsoup.components.Meta;
 import de.topobyte.jsoup.nodes.Element;
 
 public class Map
@@ -13,7 +14,14 @@ public class Map
 
 	public static void setupHead(HtmlBuilder builder)
 	{
-		builder.getHead().ac(script("/client/demo/demo.nocache.js"));
+		// Set this so that GWT still can resolve the *.cache.js files even
+		// though the name of demo.nocache.js has been changed.
+		Meta meta = builder.getHead().ac(HTML.meta());
+		meta.attr("name", "gwt:property");
+		meta.attr("content", "baseUrl=/client/demo/");
+
+		builder.getHead().ac(script(
+				"/" + CacheBusting.resolve("client/demo/demo.nocache.js")));
 		builder.getHead().ac(script("/" + CacheBusting.resolve("script.js")));
 	}
 
