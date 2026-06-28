@@ -255,88 +255,88 @@
     <edges line="S5"/>
     <edges line="S6"/>
     <edges line="S60"/>
-    <station name="Altbach" x="707.850788" y="513.202029"/>
-    <station name="Asperg" x="393.709742" y="206.270169"/>
-    <station name="Backnang" x="729.855880" y="241.643624"/>
-    <station name="Benningen (Neckar)" x="512.175060" y="204.789620"/>
-    <station name="Beutelsbach" x="715.793689" y="423.323780"/>
-    <station name="Bietigheim-Bissingen" x="309.143211" y="206.270169"/>
-    <station name="Burgstall (Murr)" x="695.521462" y="221.965950"/>
-    <station name="Böblingen" x="296.544590" y="501.793267"/>
-    <station name="Böblingen Goldberg" x="323.847899" y="497.242838"/>
-    <station name="Ditzingen" x="313.600613" y="272.889306"/>
+    <station name="Altbach" x="713.816911" y="523.672722"/>
+    <station name="Asperg" x="396.352561" y="207.966242"/>
+    <station name="Backnang" x="738.258775" y="247.489116"/>
+    <station name="Benningen (Neckar)" x="515.134340" y="205.147235"/>
+    <station name="Beutelsbach" x="718.066936" y="422.349531"/>
+    <station name="Bietigheim-Bissingen" x="309.143211" y="205.147235"/>
+    <station name="Burgstall (Murr)" x="700.578042" y="226.139368"/>
+    <station name="Böblingen" x="296.544590" y="499.263039"/>
+    <station name="Böblingen Goldberg" x="323.847899" y="499.263039"/>
+    <station name="Ditzingen" x="316.137719" y="271.328140"/>
     <station name="Echterdingen" x="419.080894" y="559.241924"/>
-    <station name="Ehningen (bei Böblingen)" x="216.189678" y="554.493907"/>
-    <station name="Endersbach" x="698.209115" y="406.447542"/>
-    <station name="Erdmannhausen" x="604.765146" y="204.789620"/>
-    <station name="Esslingen (Neckar)" x="645.809976" y="452.954618"/>
-    <station name="Esslingen Zell" x="687.170517" y="493.119559"/>
-    <station name="Esslingen-Mettingen" x="625.129706" y="432.872148"/>
+    <station name="Ehningen (bei Böblingen)" x="231.260087" y="547.751362"/>
+    <station name="Endersbach" x="699.914050" y="405.716856"/>
+    <station name="Erdmannhausen" x="613.642987" y="205.147235"/>
+    <station name="Esslingen (Neckar)" x="649.568737" y="462.868501"/>
+    <station name="Esslingen Zell" x="692.400853" y="503.404648"/>
+    <station name="Esslingen-Mettingen" x="628.152679" y="442.600427"/>
     <station name="Favoritepark" x="435.981579" y="208.647645"/>
-    <station name="Fellbach" x="616.972565" y="355.100928"/>
+    <station name="Fellbach" x="616.972565" y="355.100929"/>
     <station name="Filderstadt" x="464.182835" y="599.567866"/>
-    <station name="Freiberg (Neckar)" x="465.880017" y="204.789620"/>
-    <station name="Geradstetten" x="750.962839" y="457.076256"/>
-    <station name="Grunbach" x="733.378264" y="440.200018"/>
-    <station name="Gärtringen" x="188.570897" y="576.490554"/>
+    <station name="Freiberg (Neckar)" x="465.880017" y="205.147235"/>
+    <station name="Geradstetten" x="754.372710" y="455.614883"/>
+    <station name="Grunbach" x="736.219823" y="438.982207"/>
+    <station name="Gärtringen" x="198.617836" y="571.995523"/>
     <station name="Herrenberg" x="133.333333" y="620.483846"/>
-    <station name="Hulb" x="243.808460" y="532.497261"/>
-    <station name="Höfingen" x="284.545277" y="300.277674"/>
-    <station name="Kirchberg (Murr)" x="651.060189" y="204.789620"/>
-    <station name="Kirchheim (Teck)" x="811.252140" y="613.614381"/>
-    <station name="Kirchheim (Teck)-Ötlingen" x="790.571870" y="593.531910"/>
-    <station name="Korntal" x="399.960778" y="266.085351"/>
+    <station name="Hulb" x="263.902339" y="523.507200"/>
+    <station name="Höfingen" x="285.298797" y="296.283001"/>
+    <station name="Kirchberg (Murr)" x="662.897310" y="205.147235"/>
+    <station name="Kirchheim (Teck)" x="820.897202" y="625.013090"/>
+    <station name="Kirchheim (Teck)-Ötlingen" x="799.481144" y="604.745017"/>
+    <station name="Korntal" x="399.960778" y="268.791034"/>
     <station name="Kornwestheim Personenbahnhof" x="432.214144" y="250.644817"/>
     <station name="Leinfelden" x="396.529923" y="539.078954"/>
-    <station name="Leonberg" x="255.489940" y="327.666042"/>
+    <station name="Leonberg" x="256.996981" y="323.774967"/>
     <station name="Ludwigsburg" x="419.046598" y="230.206067"/>
-    <station name="Magstadt" x="230.434375" y="422.226275"/>
-    <station name="Maichingen" x="263.489482" y="462.009771"/>
-    <station name="Maichingen Nord" x="246.961929" y="442.118023"/>
+    <station name="Magstadt" x="232.443763" y="418.926947"/>
+    <station name="Maichingen" x="264.494176" y="459.094993"/>
+    <station name="Maichingen Nord" x="248.468970" y="439.010970"/>
     <station name="Malmsheim" x="168.323931" y="409.831147"/>
-    <station name="Marbach (Neckar)" x="558.470103" y="204.789620"/>
-    <station name="Maubach" x="715.789131" y="260.672825"/>
-    <station name="Nellmersbach" x="701.722383" y="279.702026"/>
-    <station name="Neustadt-Hohenacker" x="659.522138" y="336.789628"/>
-    <station name="Neuwirtshaus (Porscheplatz)" x="440.647048" y="268.094739"/>
-    <station name="Nufringen" x="160.952115" y="598.487200"/>
+    <station name="Marbach (Neckar)" x="564.388664" y="205.147235"/>
+    <station name="Maubach" x="722.791544" y="265.544068"/>
+    <station name="Nellmersbach" x="707.324313" y="283.599020"/>
+    <station name="Neustadt-Hohenacker" x="660.922621" y="337.763877"/>
+    <station name="Neuwirtshaus (Porscheplatz)" x="436.080257" y="270.820718"/>
+    <station name="Nufringen" x="165.975584" y="596.239685"/>
     <station name="Oberaichen" x="373.978953" y="518.915983"/>
-    <station name="Oberesslingen" x="666.490247" y="473.037089"/>
-    <station name="Plochingen" x="728.531058" y="533.284500"/>
+    <station name="Oberesslingen" x="670.984795" y="483.136575"/>
+    <station name="Plochingen" x="735.232969" y="543.940796"/>
     <station name="Renningen" x="200.393349" y="378.758901"/>
-    <station name="Renningen Süd" x="213.906821" y="402.334527"/>
-    <station name="Rommelshausen" x="663.039965" y="372.695067"/>
-    <station name="Rutesheim" x="226.434604" y="355.054411"/>
-    <station name="Schorndorf" x="803.716564" y="507.704969"/>
-    <station name="Schwaikheim" x="673.588887" y="317.760427"/>
-    <station name="Sindelfingen" x="280.017036" y="481.901519"/>
-    <station name="Stetten-Beinstein" x="680.624540" y="389.571305"/>
+    <station name="Renningen Süd" x="216.418556" y="398.842924"/>
+    <station name="Rommelshausen" x="663.608277" y="372.451505"/>
+    <station name="Rutesheim" x="228.695165" y="351.266934"/>
+    <station name="Schorndorf" x="808.831369" y="505.512910"/>
+    <station name="Schwaikheim" x="676.389852" y="319.708925"/>
+    <station name="Sindelfingen" x="280.519383" y="479.179016"/>
+    <station name="Stetten-Beinstein" x="681.761163" y="389.084180"/>
     <station name="Stuttgart Feuersee" x="444.083253" y="415.258863"/>
     <station name="Stuttgart Flughafen/Messe" x="441.631864" y="579.404895"/>
-    <station name="Stuttgart Hauptbahnhof (tief)" x="481.145361" y="381.861204"/>
-    <station name="Stuttgart Neckarpark (Mercedes-Benz)" x="563.088894" y="372.624737"/>
+    <station name="Stuttgart Hauptbahnhof (tief)" x="482.363172" y="381.796207"/>
+    <station name="Stuttgart Neckarpark (Mercedes-Benz)" x="563.904505" y="381.796207"/>
     <station name="Stuttgart Nord" x="501.280556" y="347.731183"/>
-    <station name="Stuttgart Nürnberger Straße" x="560.006915" y="353.665128"/>
+    <station name="Stuttgart Nürnberger Straße" x="560.006915" y="353.665127"/>
     <station name="Stuttgart Schwabstraße" x="425.552199" y="431.957693"/>
     <station name="Stuttgart Stadtmitte" x="462.614307" y="398.560034"/>
     <station name="Stuttgart Universität" x="407.021145" y="448.656523"/>
     <station name="Stuttgart Österfeld" x="388.490090" y="465.355352"/>
-    <station name="Stuttgart-Bad Cannstatt" x="531.524090" y="352.947227"/>
+    <station name="Stuttgart-Bad Cannstatt" x="528.784016" y="381.796207"/>
     <station name="Stuttgart-Feuerbach" x="486.191060" y="324.309278"/>
-    <station name="Stuttgart-Obertürkheim" x="604.449435" y="412.789678"/>
-    <station name="Stuttgart-Rohr" x="351.427982" y="498.753012"/>
+    <station name="Stuttgart-Obertürkheim" x="606.736621" y="422.332354"/>
+    <station name="Stuttgart-Rohr" x="351.427982" y="499.263039"/>
     <station name="Stuttgart-Sommerrain" x="588.489740" y="354.383028"/>
-    <station name="Stuttgart-Untertürkheim" x="583.769165" y="392.707207"/>
+    <station name="Stuttgart-Untertürkheim" x="585.320563" y="402.064280"/>
     <station name="Stuttgart-Vaihingen" x="369.959036" y="482.054182"/>
     <station name="Stuttgart-Zuffenhausen" x="462.598092" y="294.585169"/>
-    <station name="Tamm (Württ)" x="356.588049" y="204.689444"/>
+    <station name="Tamm (Württ)" x="356.588049" y="205.147235"/>
     <station name="Waiblingen" x="645.455390" y="355.818829"/>
     <station name="Weil der Stadt" x="139.268595" y="437.219515"/>
-    <station name="Weiler (Rems)" x="786.131989" y="490.828731"/>
-    <station name="Weilimdorf" x="357.243177" y="268.094739"/>
-    <station name="Wendlingen (Neckar)" x="769.891599" y="573.449440"/>
-    <station name="Wernau" x="749.211329" y="553.366970"/>
-    <station name="Winnenden" x="687.655635" y="298.731227"/>
-    <station name="Winterbach (b Schorndorf)" x="768.547414" y="473.952494"/>
+    <station name="Weiler (Rems)" x="790.678483" y="488.880234"/>
+    <station name="Weilimdorf" x="357.243177" y="268.791034"/>
+    <station name="Wendlingen (Neckar)" x="778.065086" y="584.476943"/>
+    <station name="Wernau" x="756.649028" y="564.208869"/>
+    <station name="Winnenden" x="691.857082" y="301.653972"/>
+    <station name="Winterbach (b Schorndorf)" x="772.525596" y="472.247558"/>
   </view>
 </omm-file>
