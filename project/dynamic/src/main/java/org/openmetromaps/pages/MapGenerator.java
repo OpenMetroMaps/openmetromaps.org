@@ -28,7 +28,7 @@ public class MapGenerator extends BaseGenerator
 
 		menu();
 
-		Map.setupHead(builder);
+		Map.setupHead(builder, Map.Style.FULL);
 
 		String mapfile = String.format("client/%s/%s.omm", region, version);
 		Map.widget(content, "/" + CacheBusting.resolve(mapfile));

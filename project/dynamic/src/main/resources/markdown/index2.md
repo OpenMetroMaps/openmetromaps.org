@@ -1,14 +1,12 @@
-# Our mission
-Schematic maps for public transportation networks are essential tools
-for orientation and navigation in cities. Unfortunately, these maps are
-usually proprietary resources that pose strong limits on what you are
-allowed to do with them. The owners of the material often charge a fee
-for displaying the content on websites, apps or printed material and
-they don't allow you to change anything on the map itself. This alone
-prevents creative use of these maps. Furthermore, you only get a PDF
-document – this makes interactive content hard to create. We're here to
-change that by providing open source tools and file formats for
-creating free schematic metro maps. [[Read more|mission]].
+This is a demo of our maps for the city of Stuttgart.
+Try it, you can zoom in and drag the map around. The further
+you zoom in, the more information appear (station names).
+Also, you can click any station to open a context menu.
+Our demo here only provides a menu entry for showing the station
+on a regular map. But that menu could also contain train
+departures when connected with live data or it could allow
+you to select start and end stations for a trip planner.
+See more demo maps on our [demo page](/demo).
 
 # Project status
 The project is in alpha stage. Things are still changing quickly and

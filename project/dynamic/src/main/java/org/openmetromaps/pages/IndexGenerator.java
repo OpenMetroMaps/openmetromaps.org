@@ -4,7 +4,9 @@ import java.io.IOException;
 
 import org.openmetromaps.BaseGenerator;
 import org.openmetromaps.Website;
+import org.openmetromaps.widgets.Map;
 
+import de.topobyte.cachebusting.CacheBusting;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.Markdown;
 import de.topobyte.jsoup.components.Div;
@@ -38,7 +40,15 @@ public class IndexGenerator extends BaseGenerator
 		slogan.attr("style",
 				"display:block; font-weight: normal; text-align: center");
 
-		Markdown.renderResource(content, "markdown/index.md");
+		Markdown.renderResource(content, "markdown/index1.md");
+
+		content.ac(HTML.h1("Demo"));
+
+		Map.setupHead(builder, Map.Style.INDEX);
+		String mapfile = "client/stuttgart/sbahn-schematic.omm";
+		Map.widget(content, "/" + CacheBusting.resolve(mapfile));
+
+		Markdown.renderResource(content, "markdown/index2.md");
 
 		funding();
 

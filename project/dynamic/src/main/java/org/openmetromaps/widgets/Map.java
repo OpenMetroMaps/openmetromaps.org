@@ -12,7 +12,12 @@ import de.topobyte.jsoup.nodes.Element;
 public class Map
 {
 
-	public static void setupHead(HtmlBuilder builder)
+	public static enum Style {
+		FULL,
+		INDEX
+	}
+
+	public static void setupHead(HtmlBuilder builder, Style style)
 	{
 		// Set this so that GWT still can resolve the *.cache.js files even
 		// though the name of demo.nocache.js has been changed.
@@ -22,7 +27,13 @@ public class Map
 
 		builder.getHead().ac(script(
 				"/" + CacheBusting.resolve("client/demo/demo.nocache.js")));
-		builder.getHead().ac(script("/" + CacheBusting.resolve("script.js")));
+		if (style == Style.FULL) {
+			builder.getHead()
+					.ac(script("/" + CacheBusting.resolve("script.js")));
+		} else if (style == Style.INDEX) {
+			builder.getHead()
+					.ac(script("/" + CacheBusting.resolve("script-index.js")));
+		}
 	}
 
 	public static void widget(Element<?> content, String file)
